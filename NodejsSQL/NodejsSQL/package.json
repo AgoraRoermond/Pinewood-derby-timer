@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-console-app1",
+  "name": "nodejs-sql",
   "version": "0.0.0",
-  "description": "NodejsConsoleApp1",
+  "description": "NodejsSQL",
   "main": "app.js",
   "author": {
     "name": ""
