@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\NodejsConsoleApp1"
+    "\\NodejsSQL",
+    "\\NodejsSQL\\NodejsSQL",
+    "\\NodejsSQL\\NodejsSQL\\public"
   ],
-  "SelectedNode": "\\NodejsConsoleApp1\\app.js",
+  "SelectedNode": "\\NodejsSQL\\NodejsSQL\\app.js",
   "PreviewInSolutionExplorer": false
 }
