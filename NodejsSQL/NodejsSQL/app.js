@@ -10,5 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => { res.render("index", { test: test }); });
 app.get("/pageA", (req, res) => { res.render("pageA", { test: test }); });
+app.get("/easteregg", (req, res) => { res.render("secret", { test: test }); });
 app.get("*", (req, res) => { res.render("404", { test: test }); });
 app.listen(port, () => { console.log("Succesfully vibing on port: " + port); });
