@@ -1,28 +1,11 @@
-var http = require("http");
-var fs = require("fs");
-var express = require("express");
+var app = require('express')();
+var bodyParser = require("body-parser"); 
 
-var port = 80;
-var readStream;
+var port = 8080;
 
-var server = http.createServer(function (req, res) {
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/public");
+app.use(bodyParser.urlencoded({ extended: false })); 
 
-    res.writeHead(200, { "Content-Type": "text/html" });
-    if (req.url == "/") {
-        readStream = fs.createReadStream(__dirname + "/index.html", "utf8");
-        //res.render(__dirname + "/index.html", { port: port });
-    } else if (req.url == "/hello") {
-        readStream = fs.createReadStream(__dirname + "/hello.html", "utf8");
-        //res.render(__dirname + "/hello.html", { port: port });
-    } else {
-        readStream = fs.createReadStream(__dirname + "/err.html", "utf8");
-        //res.render(__dirname + "/err.html", { port: port });
-    }
-
-
-    readStream.pipe(res);
-
-});
-
-server.listen(port);
-console.log("Succesfully vibing on port: " + port);
+app.get("/", (req, res) => { res.render("index", { port: port }); }); 
+app.listen(port, () => { console.log("Succesfully vibing on port: " + port); });

@@ -4,10 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script>
+        var port = '&<%=port%>';
+        console.log(port);
+    </script>
 </head>
 <body>
+    
     <h1>Wibbly Wobbely we are one. this banana i have is now a gun!</h1>
     <br />
-    <a href="/hello.html"><button>Bitch</button></a> 
+    <a href="/hello.html"><button value="<%=port%>"></button></a> 
 </body>
 </html>
