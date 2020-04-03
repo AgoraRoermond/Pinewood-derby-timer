@@ -24,7 +24,7 @@ connection.connect(function (err) {
     )
 })
 
-connection.query("SELECT * FROM student"(result, fields) => { student = result; });
+//connection.query("SELECT * FROM student"(result, fields)) => { student = result; };
 console.log(student);
 
 var port = 80;

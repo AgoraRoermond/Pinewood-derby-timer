@@ -4,6 +4,9 @@
   "description": "NodejsSQL",
   "main": "app.js",
   "author": {
-    "name": ""
+    "name": "tinesone"
+  },
+  "nodemonConfig": {
+    "delay":  "1"
   }
 }
