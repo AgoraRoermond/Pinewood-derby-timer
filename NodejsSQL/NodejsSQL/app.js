@@ -4,16 +4,16 @@ var mysql = require("mysql");
 
 var student;
 
-var connection = mysql.createConnection(
+/*var connection = mysql.createConnection(
     {
         host: "localhost",
         user: "root",
         password: "AgoraRoermond",
         database: "Derby"
-    });
+    });*/
 
 
-connection.connect(function (err) {
+/*connection.connect(function (err) {
     if (err) throw err;
     connection.query("SELECT * FROM student", function (err, result, fields) {
         if (err) throw err;
@@ -22,7 +22,7 @@ connection.connect(function (err) {
         student = result;
     }
     )
-})
+})*/
 
 //connection.query("SELECT * FROM student"(result, fields)) => { student = result; };
 console.log(student);
