@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-sql",
+  "version": "0.0.0",
+  "description": "NodejsSQL",
+  "main": "app.js",
+  "author": {
+    "name": "tinesone"
+  },
+  "nodemonConfig": {
+    "delay":  "1"
+  }
+}

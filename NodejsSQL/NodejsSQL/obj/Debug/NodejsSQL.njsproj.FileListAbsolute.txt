@@ -1,0 +1,3 @@
+C:\Users\tlr3\Documents\GitHub\Pinewood-derby-timer\NodejsSQL\NodejsSQL\obj\Debug\NodejsSQL.njsprojAssemblyReference.cache
+C:\Users\tlr3\Documents\GitHub\Pinewood-derby-timer\NodejsSQL\NodejsSQL\obj\Debug\NodejsSQL.njsproj.CoreCompileInputs.cache
+C:\Users\tlr3\Documents\GitHub\Pinewood-derby-timer\NodejsSQL\NodejsSQL\bin\Microsoft.NodejsTools.WebRole.dll

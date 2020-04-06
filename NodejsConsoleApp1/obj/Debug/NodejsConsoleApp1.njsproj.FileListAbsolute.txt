@@ -1,2 +1,0 @@
-C:\Users\tlr3\Documents\GitHub\NodeSQL\NodejsConsoleApp1\obj\Debug\NodejsConsoleApp1.njsprojAssemblyReference.cache
-C:\Users\tlr3\Documents\GitHub\NodeSQL\NodejsConsoleApp1\bin\Microsoft.NodejsTools.WebRole.dll
