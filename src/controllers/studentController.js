@@ -1,9 +1,8 @@
 const sql = require('../db.js');
 
 async function getAllStudents(request, response) {
-  console.log("getAllStudents");
-  result = await sql.query("SELECT * FROM students");
-  response.send(result);
+  students = await sql.query("SELECT * FROM students");
+  response.render('pages/students/allStudents', {students});
 }
 
 module.exports = {

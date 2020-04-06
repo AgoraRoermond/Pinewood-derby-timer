@@ -36,3 +36,7 @@ header li a:hover {
 header li a.active {
     color: #999790;
 }
+
+table {
+  border: 1px solid black;
+}
