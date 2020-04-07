@@ -1,7 +1,7 @@
 {
-  "name": "Pinewood-derpy-timer",
+  "name": "Pinewood-derby-timer",
   "version": "0.0.0",
-  "description": "The server for the pinewood derpy project",
+  "description": "The server for the pinewood derby project",
   "private": true,
   "main": "app.js",
   "author": "tinesone",
