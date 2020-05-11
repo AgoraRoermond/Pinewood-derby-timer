@@ -1,0 +1,42 @@
+body {
+    margin: 0px;
+}
+
+header {
+    text-align: center;
+    background: #0B8787;
+    color: black;
+    font-size: 35px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0B8787;
+}
+
+header li {
+    float: left;
+}
+
+header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+}
+
+header li a:hover {
+    background-color: black;
+}
+
+header li a.active {
+    color: #999790;
+}
+
+table {
+  border: 1px solid black;
+}
