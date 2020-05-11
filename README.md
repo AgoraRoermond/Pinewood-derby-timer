@@ -22,10 +22,16 @@ CREATE TABLE `students` (
 );
 INSERT INTO `students` VALUES (3,'Jetse','VWO5'),(4,'Martijn','VWO5'),(5,'Timo','VWO3');
 ```
-A mariadb server can be easily setup using docker
+A mariadb server can be easily setup using docker:
 ```bash
 docker run --name Pinewood-derby-mariadb -e MYSQL_ROOT_PASSWORD=AgoraRoermond -e MYSQL_DATABASE=Derby -p 3306:3306 mariadb
 ```
+It's also possible to start a phpmyadmin server using docker. The following command starts a phpmyadmin server on `localhost:8000` with the same credentials as mariadb
+```bash
+docker run --name Pinewood-derpy-phpmyadmin -d --link Pinewood-derpy-mariadb:db -p 8000:80 phpmyadmin/phpmyadmin
+```
+
+
 ## How to run
 ### Development server
 The advantage of the development server is live reloading. Live reloading automatically restarts the server when a source file is changed. To start a development server run
