@@ -42,6 +42,15 @@ or
 ```bash
 npm run start
 ```
+### Server without database
+In case you're not feeling like setting up a database. Note that any anything using the database will (obviously) not work.
+```bash
+yarn start no-database
+```
+or
+```bash
+npm run no-database
+```
 ### Production Server
 To start a server for production run
 ```bash

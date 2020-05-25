@@ -1,5 +1,12 @@
 var mysql = require('mysql');
 
+if(process.env.NO_DATABASE) {
+  module.exports = {
+    query: () => [],
+  };
+  return;
+}
+
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
