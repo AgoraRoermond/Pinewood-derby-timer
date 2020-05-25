@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "start": "nodemon",
+    "no-database": "cross-env NO_DATABASE=true nodemon",
     "server": "node ./src/app.js",
     "prod": "NODE_ENV=production npm-run-all server",
     "dev": "npm-run-all server"
