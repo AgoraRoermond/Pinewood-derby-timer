@@ -9,19 +9,20 @@ String endString;
 
 void setup() {
   Serial.begin(115200);
-  stringA = String(floatA);
-  stringB = String(floatB);
-  stringC = String(floatC);
+  stringA = floatA;
+  stringB = floatB;
+  stringC = floatC;
 
 
   //creates the string bcus arduino is stupid
-  endString = '#';
-  endString = endString+stringA;
-  endString = endString+'&';
-  endString = endString+stringB; 
-  endString = endString+'&';
-  endString = endString+stringC;
-  endString = endString+'*';  
+//  endString = '#';
+//  endString = endString+stringA;
+//  endString = endString+'&';
+//  endString = endString+stringB; 
+//  endString = endString+'&';
+//  endString = endString+stringC;
+//  endString = endString+'*';
+  endString = String(floatA)+"&"+String(floatB)+"&"+String(floatC);
 }
 
 void loop() {
