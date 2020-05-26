@@ -20,7 +20,7 @@ CREATE TABLE `students` (
   `class` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
-INSERT INTO `students` VALUES (3,'Jetse','VWO5'),(4,'Martijn','VWO5'),(5,'Timo','VWO3');
+INSERT INTO `students` VALUES (3,'Jetse','VWO5'),(4,'Martijn','VWO5'),(5,'Timo','VWO3'), (6, 'David','HAVO4'), (7, 'Mees','HAVO4');
 ```
 A mariadb server can be easily setup using docker:
 ```bash
