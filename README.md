@@ -21,7 +21,10 @@ CREATE TABLE `students` (
   PRIMARY KEY (`id`)
 );
 INSERT INTO `students` VALUES (3,'Jetse','VWO5'),(4,'Martijn','VWO5'),(5,'Timo','VWO3'), (6, 'David','HAVO4'), (7, 'Mees','HAVO4');
-##Setup table sql database
+
+
+
+###Setup table sql database
 CREATE TABLE 'times'(
  Derby.times CHANGE id id int(11) NOT NULL;
  Derby.times CHANGE time time varchar(45);
