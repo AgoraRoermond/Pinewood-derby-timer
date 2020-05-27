@@ -25,10 +25,14 @@ INSERT INTO `students` VALUES (3,'Jetse','VWO5'),(4,'Martijn','VWO5'),(5,'Timo',
 
 
 ###Setup table sql database
-CREATE TABLE 'times'(
- Derby.times CHANGE id id int(11) NOT NULL;
- Derby.times CHANGE time time varchar(45);
- Derby.times CHANGE attempt attempt varchar(45);
+create table Times (
+id int(11) not null auto_increment,
+ Time varchar(45) default null,
+ attempt varchar(45) default null, 
+primary key (id) 
+);
+
+
 
 ```
 A mariadb server can be easily setup using docker:
