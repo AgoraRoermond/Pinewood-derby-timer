@@ -11,11 +11,11 @@ parser.on('data', line => chop(line));
 function chop(line) {
 
     var string = line.split("&");
-    var time1 = string[0];
-    var time2 = string[1];
-    var time3 = string[2];
+    var time1 = parseFloat(string[0]);
+    var time2 = parseFloat(string[0]);
+    var time3 = parseFloat(string[0]);
 
-    console.log("time1 = " + time1);
+    console.log("time1 = "+time1);
     console.log("time2 = "+time2);
     console.log("time3 = "+time3);
 
