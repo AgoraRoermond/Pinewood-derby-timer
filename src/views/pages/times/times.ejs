@@ -1,0 +1,40 @@
+<!-- views/pages/students/allStudents.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../../partials/head') %>
+</head>
+<body>
+
+<header>
+    <h1>
+      my times
+    </h1>
+    <%- include ('../../partials/nav') %>
+</header>
+
+<main>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Time</th>
+        <th>Attempt</th>
+      </tr>
+
+      <% for(let i = 0; i < times.length; i++) { %>
+      <tr>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].time %></td>
+        <td><%= times[i].attempt %></td>
+      </tr>
+      <% } %>
+    </table>
+</main>
+
+<footer>
+    <%- include ('../../partials/footer') %>
+</footer>
+
+</body>
+</html>
