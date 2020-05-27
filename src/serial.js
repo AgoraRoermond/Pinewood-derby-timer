@@ -8,29 +8,18 @@ port.pipe(parser)
 
 parser.on('data', line => chop(line));
 
-console.log("Hello World this is serial.js");
-
-var time1;
-var time2;
-var time3;
+var latestTimes = [0,0,0];
 
 function chop(line) {
+    var timeStrings = line.split("&");
+    latestTimes = timeStrings.map(x => parseFloat(x));
+}
 
-    var string = line.split("&");
-    time1 = parseFloat(string[0]);
-    time2 = parseFloat(string[1]);
-    time3 = parseFloat(string[2]);
-
-    console.log("time1 = "+time1);
-    console.log("time2 = "+time2);
-    console.log("time3 = "+time3);
-
+function getLatestTimes() {
+    return latestTimes;
 }
 
 
 module.exports = {
-    time1,
-    time2,
-    time3,
-    string
+    latestTimes,
 }
