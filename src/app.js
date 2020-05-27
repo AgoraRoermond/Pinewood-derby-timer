@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const path = require('path');
 const routes = require('./router');
+require('./serial.js');
 
 const app = express();
 var port = process.env.NODE_ENV === "production" ? 80 : 8080;
