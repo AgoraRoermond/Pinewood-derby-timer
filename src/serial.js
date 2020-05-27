@@ -1,25 +1,23 @@
-const SerialPort = require('serialport')
-const Readline = require('@serialport/parser-readline')
+const SerialPort = require('serialport');
+const Readline = require('@serialport/parser-readline');
+
 const path = "COM3";
-const port = new SerialPort(path, { baudRate: 115200 })
-const parser = new Readline()
 
-port.pipe(parser)
+const port = new SerialPort(path, {baudRate: 115200});
+const parser = port.pipe(new Readline());
+var latestTimes = [0, 0, 0];
 
-parser.on('data', line => chop(line));
-
-var latestTimes = [0,0,0];
-
-function chop(line) {
-    var timeStrings = line.split("&");
-    latestTimes = timeStrings.map(x => parseFloat(x));
-}
+port.on('error', err => console.log("Couldn't open serial port"));
+parser.on('data', line => {
+  var timeStrings = line.split("&");
+  latestTimes = timeStrings.map(x => parseFloat(x));
+});
 
 function getLatestTimes() {
-    return latestTimes;
+  return latestTimes;
 }
 
 
 module.exports = {
-    latestTimes,
+  getLatestTimes,
 }
