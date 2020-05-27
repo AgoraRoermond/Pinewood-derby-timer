@@ -151,6 +151,7 @@ void UpdateScreen(String Rotation) {
           lcd.print("Recording...");
           Record();
           //FakeRecord();
+          sendData();
           lcd.clear();
           lcd.setCursor(3, 1);
           lcd.print("Done");
@@ -273,7 +274,7 @@ void Record() {
       lcd.clear();
       lcd.setCursor(3, 1);
       lcd.print("Start");
-      Serial.println("recording...");
+      //Serial.println("recording...");
       beginTimeDone = true;
     }
 
@@ -282,16 +283,16 @@ void Record() {
       car0 = millis();
       float Laptime = car0 - begintime;
       endTime0 = Laptime;
-      Serial.print("Laptime = " );
-      Serial.println(Laptime / 1000);
+      //Serial.print("Laptime = " );
+      //Serial.println(Laptime / 1000);
     }
 
     if (sensorValue1 >= baseLight1 + sensitivity and endTime1 == 0 and beginTimeDone == true) {
       car1 = millis();
       float Laptime = car1 - begintime;
       endTime1 = Laptime;
-      Serial.print("Laptime = " );
-      Serial.println(Laptime / 1000);
+      //Serial.print("Laptime = " );
+      //Serial.println(Laptime / 1000);
 
     }
 
@@ -299,9 +300,9 @@ void Record() {
       car2 = millis();
       float Laptime = car2 - begintime;
       endTime2 = Laptime;
-      Serial.print("Laptime = " );
-      Serial.println(Laptime / 1000);
-
+      //Serial.print("Laptime = " );
+      //Serial.println(Laptime / 1000);
+      
     }
 
     if (beginTimeDone == true) {
@@ -338,3 +339,8 @@ void Record() {
   endTime1 = random(1000, 30000);
   endTime2 = random(1000, 30000);
   }*/
+
+
+void sendData(){
+  Serial.println(String(endTime0)+"&"+String(endTime1)+"&"+String(endTime2));
+}
