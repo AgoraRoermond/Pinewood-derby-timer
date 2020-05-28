@@ -5,6 +5,13 @@ async function getTimes(request, response) {
   response.render('pages/times/times', {times});
 }
 
+async function saveValues(timeList) {
+    for (i = 0; i < timeList.lenght; i++) {
+        sql.query("INSERT INTO times " + timeList[i]);
+    }
+}
+
 module.exports = {
-  getTimes
+  getTimes,
+  saveValues
 };
