@@ -1,4 +1,4 @@
-# Pinewood Derpy Server
+# Pinewood Derby Server
 The server for the pinewood derby project
 ## How to install
 ### Install node packages
@@ -37,13 +37,13 @@ primary key (id)
 ```
 A mariadb server can be easily setup using docker:
 ```bash
-docker run --name Pinewood-derby-mariadb -e MYSQL_ROOT_PASSWORD=AgoraRoermond -e MYSQL_DATABASE=Derby -p 3306:3306 mariadb
+docker run --rm -it --name Pinewood-derby-mariadb -e MYSQL_ROOT_PASSWORD=AgoraRoermond -e MYSQL_DATABASE=Derby -p 3306:3306 mariadb
 ```
 It's also possible to start a phpmyadmin server using docker. The following command starts a phpmyadmin server on `localhost:8000` with the same credentials as mariadb
 ```bash
-docker run --name Pinewood-derpy-phpmyadmin -d --link Pinewood-derpy-mariadb:db -p 8000:80 phpmyadmin/phpmyadmin
+docker run --rm -it --name Pinewood-derby-phpmyadmin --link Pinewood-derby-mariadb:db -p 8000:80 phpmyadmin/phpmyadmin
 ```
-
+Mariadb can be stopped  by pressing <kbd>CTRL</kbd>+<kbd>\\</kbd>, to stop phpmyadmin <kbd>CTRL</kbd>+<kbd>C</kbd> will suffice.
 
 ## How to run
 ### Development server
