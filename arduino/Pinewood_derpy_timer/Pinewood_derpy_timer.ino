@@ -53,8 +53,8 @@ void setup()
   pinMode(ButtonPush, INPUT_PULLUP);
   pinMode(ButtonUp, INPUT_PULLUP);
   pinMode(ButtonDown, INPUT_PULLUP);
-  Serial.begin(9600);
-  Serial3.begin(9600);
+  Serial.begin(115200);
+  Serial3.begin(115200);
   Serial.println("Pinewood derby timer program");
   lcd.init();// initialize the lcd
   lcd.backlight();
@@ -282,7 +282,7 @@ void Record() {
     if (sensorValue0 >= baseLight0 + sensitivity and endTime0 == 0 and beginTimeDone == true) {
       car0 = millis();
       float Laptime = car0 - begintime;
-      endTime0 = Laptime;
+      endTime0 = Laptime / 1000;
       //Serial.print("Laptime = " );
       //Serial.println(Laptime / 1000);
     }
@@ -290,7 +290,7 @@ void Record() {
     if (sensorValue1 >= baseLight1 + sensitivity and endTime1 == 0 and beginTimeDone == true) {
       car1 = millis();
       float Laptime = car1 - begintime;
-      endTime1 = Laptime;
+      endTime1 = Laptime / 1000;
       //Serial.print("Laptime = " );
       //Serial.println(Laptime / 1000);
 
@@ -299,7 +299,7 @@ void Record() {
     if (sensorValue2 >= baseLight2 + sensitivity and endTime2 == 0 and beginTimeDone == true) {
       car2 = millis();
       float Laptime = car2 - begintime;
-      endTime2 = Laptime;
+      endTime2 = Laptime / 1000;
       //Serial.print("Laptime = " );
       //Serial.println(Laptime / 1000);
       
