@@ -10,8 +10,8 @@ INSERT INTO `students` (`name`,`class`) VALUES ('Jetse','VWO5'),('Martijn','VWO5
 DROP TABLE IF EXISTS `times`;
 CREATE TABLE times (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `time` varchar(45) DEFAULT NULL,
-  `attempt` varchar(45) DEFAULT NULL,
+  `time` float(45) DEFAULT NULL,
+  `attempt` float(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 INSERT INTO `times` (`time`,`attempt`) VALUES ('1.54','1'),('1.52','1');
