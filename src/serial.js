@@ -1,6 +1,6 @@
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
-const timesController = require('controllers/timesController.js');
+const timesController = require('./controllers/timesController.js');
 
 const path = "COM3";
 
@@ -18,7 +18,7 @@ function getLatestTimes() {
   return latestTimes;
 }
 
-saveTimes(latestTimes);
+timesController.saveTimes(getLatestTimes);
 
 module.exports = {
   getLatestTimes,

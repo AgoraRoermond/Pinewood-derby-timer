@@ -8,11 +8,11 @@ async function getTimes(request, response) {
 
 async function saveTimes(timeList) {
     for (i = 0; i < timeList.lenght; i++) {
-        sql.query("INSERT INTO times " + timeList[i]);
+        await sql.query("INSERT INTO times " + timeList[i]);
     }
 }
 
 module.exports = {
     getTimes,
-    saveValues,
+    saveTimes
 }
