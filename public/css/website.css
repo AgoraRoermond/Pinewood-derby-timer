@@ -3,8 +3,9 @@ header {
     background: #0B8787;
     color: black;
     font-size: 35px;
-}
+    height: fit-content;
 
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -12,12 +13,10 @@ ul {
     overflow: hidden;
     background-color: #0B8787;
 }
-
 header li {
     float: left;
 }
-
-header li a {
+header li a{
     display: block;
     color: white;
     text-align: center;
@@ -28,7 +27,6 @@ header li a {
 header li a:hover {
     background-color: black;
 }
-
 header li a.active {
     color: #999790;
 }
@@ -43,8 +41,7 @@ div.Title {
     padding: 0;
     overflow: hidden;
 }
-
-div.Tijdknop {
+div.Tijdknop{
     text-align: left;
     background: #0B8787;
     height: fit-content;
@@ -55,11 +52,10 @@ div.Tijdknop {
     overflow: hidden;
 }
 
-p.Tijdenlijst {
+p.Tijdenlijst{
     text-align: right;
     font-size: large;
 }
-
 table,
 th,
 td {
@@ -67,58 +63,37 @@ td {
     border-collapse: collapse;
     width: 200px;
 }
-
-aside {
+aside{
     text-align: left;
     float: right;
     width: fit-content;
     height: fit-content;
     font-size: xx-large;
+    
 }
-
-ul {
-    list-style-type: none;
+ul
+{
+    list-style-type:none;
 }
-
 p.Grafiek {
     width: 200px;
 }
 
-body {
-    margin: 0px;
-}
-
-header {
-    text-align: center;
+div.Login-knop{
+    text-align: left;
     background: #0B8787;
+    height: fit-content;
     color: black;
-    font-size: 35px;
-}
-
-ul {
-    list-style-type: none;
+    font-size: 40px;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #0B8787;
-}
+    overflow: hidden;}
 
-header li {
-    float: left;
-}
-
-header li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 30px 30px;
-    text-decoration: none;
-}
-
-header li a:hover {
-    background-color: black;
-}
-
-header li a.active {
-    color: #999790;
-}
+button {
+        background-color: #0B8787;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: 50px;
+        cursor: pointer;
+        width: 10%; }
