@@ -216,21 +216,21 @@ void UpdateScreen(String Rotation) {
     lcd.setCursor(3, 0);
     lcd.print("Car 1 = ");
     lcd.setCursor(11, 0);
-    lcd.print(endTime0 / 1000);
+    lcd.print(endTime0);
     lcd.setCursor(17, 0);
     lcd.print("sec");
     //score car 2
     lcd.setCursor(3, 1);
     lcd.print("Car 2 = ");
     lcd.setCursor(11, 1);
-    lcd.print(endTime1 / 1000);
+    lcd.print(endTime1);
     lcd.setCursor(17, 1);
     lcd.print("sec");
     //score car 3
     lcd.setCursor(3, 2);
     lcd.print("Car 3 = ");
     lcd.setCursor(11, 2);
-    lcd.print(endTime2 / 1000);
+    lcd.print(endTime2);
     lcd.setCursor(17, 2);
     lcd.print("sec");
     //back

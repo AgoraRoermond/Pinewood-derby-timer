@@ -2,7 +2,7 @@ const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
 const timesController = require('./controllers/timesController.js');
 
-const path = "COM3";
+const path = "COM5";
 
 const port = new SerialPort(path, {baudRate: 115200});
 const parser = port.pipe(new Readline());
@@ -12,13 +12,14 @@ port.on('error', err => console.log("Couldn't open serial port"));
 parser.on('data', line => {
   var timeStrings = line.split("&");
   latestTimes = timeStrings.map(x => parseFloat(x));
+  timesController.saveTimes(latestTimes);
+  //console.log(latestTimes);
 });
 
 function getLatestTimes() {
   return latestTimes;
 }
 
-timesController.saveTimes(getLatestTimes);
 
 module.exports = {
   getLatestTimes,
