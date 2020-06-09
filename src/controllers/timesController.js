@@ -1,8 +1,9 @@
 const sql = require('../db.js');
-var x = 1;
+
 
 async function getTimes(request, response) {
-    times = await sql.query("SELECT * FROM times Where id='x' ");
+    var studentId = 2;
+    times = await sql.query("SELECT * FROM times WHERE id=?", [studentId]);
     response.render('pages/times/times', { times });
 }
 
@@ -15,4 +16,6 @@ async function saveTimes(timeList) {
 module.exports = {
     getTimes,
     saveTimes
+
+
 }
