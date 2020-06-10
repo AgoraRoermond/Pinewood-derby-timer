@@ -7,10 +7,14 @@ async function getTimes(request, response) {
 }
 
 async function saveTimes(timeList) {
-  var studentId = 10227;
-  for (i = 0; i < timeList.lenght; i++) {
-    await sql.query("INSERT INTO times (studentId, studentTime) VALUES ("+ studentId + ", "+ timeList[i] +");");
-  }
+  studentId = Math.floor(Math.random() * 200000);
+  console.log(timeList);
+  console.log(studentId);
+  timeList.forEach((time, i) => {
+    await sql.query("INSERT INTO times (studentId, studentTime) VALUES (" + studentId + ", " + time + ");");
+    console.log(time);
+  });
+
 }
 
 module.exports = {
