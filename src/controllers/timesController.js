@@ -1,21 +1,19 @@
 const sql = require('../db.js');
-
+var x = 1;
 
 async function getTimes(request, response) {
-    var studentId = 2;
-    times = await sql.query("SELECT * FROM times WHERE id=?", [studentId]);
+    times = await sql.query("SELECT * FROM times Where id='x' ");
     response.render('pages/times/times', { times });
 }
 
 async function saveTimes(timeList) {
-    for (i = 0; i < timeList.lenght; i++) {
-        await sql.query("INSERT INTO times " + timeList[i]);
-    }
+  var studentId = 10227;
+  for (i = 0; i < timeList.lenght; i++) {
+    await sql.query("INSERT INTO times (studentId, studentTime) VALUES ("+ studentId + ", "+ timeList[i] +");");
+  }
 }
 
 module.exports = {
     getTimes,
     saveTimes
-
-
 }
