@@ -2,7 +2,7 @@ const sql = require('../db.js');
 
 
 async function getTimes(request, response) {
-    var studentId = 2;
+    var studentId = 10521;
     times = await sql.query("SELECT * FROM times WHERE id=?", [studentId]);
     response.render('pages/times/times', { times });
 }

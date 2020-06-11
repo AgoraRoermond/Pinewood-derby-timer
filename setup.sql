@@ -10,6 +10,7 @@ INSERT INTO `students` (`name`,`class`) VALUES ('Jetse','VWO5'),('Martijn','VWO5
 DROP TABLE IF EXISTS `times`;
 CREATE TABLE times (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  'studentId' varchar(45) DEFAULT NULL,
   `time` varchar(45) DEFAULT NULL,
   `attempt` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
