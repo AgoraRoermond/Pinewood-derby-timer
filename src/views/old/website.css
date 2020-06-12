@@ -79,6 +79,10 @@ p.Grafiek {
     width: 200px;
 }
 
+body.login-knop{
+    box-align: center;
+}
+
 div.Login-knop{
     text-align: left;
     background: #0B8787;
@@ -89,7 +93,7 @@ div.Login-knop{
     padding: 0;
     overflow: hidden;}
 
-button {
+input.button {
         background-color: #0B8787;
         color: white;
         padding: 14px 20px;
