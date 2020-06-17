@@ -15,7 +15,7 @@ async function saveTimes(timeList) {
 
 module.exports = {
     getTimes,
-    saveTimes
+    saveTimes,
 
 
 }
