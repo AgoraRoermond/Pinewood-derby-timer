@@ -11,7 +11,7 @@
 
     <header>
         <h1>
-            d
+            dit is een test
         </h1>
         <%- include ('../../partials/admin/nav') %>
     </header>
@@ -19,6 +19,28 @@
     <footer>
         <%- include ('../../partials/admin/footer') %>
     </footer>
+
+
+    <main>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Time</th>
+            <th>Attempt</th>
+          </tr>
+    
+          <% for(let i = 0; i < admin.length; i++) { %>
+          <tr>
+            <td><%= admin[i].id %></td>
+            <td><%= admin[i].time %></td>
+            <td><%= admin[i].attempt %></td>
+          </tr>
+          <% } %>
+        </table>
+    </main>
+
+
+
 
 </body>
 </html>
