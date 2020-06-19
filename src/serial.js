@@ -1,6 +1,6 @@
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
-const timesController = require('./controllers/timesController.js');
+const studentController = require('./controllers/studentController.js');
 
 const path = "COM5";
 
@@ -12,7 +12,7 @@ port.on('error', err => console.log("Couldn't open serial port"));
 parser.on('data', line => {
   var timeStrings = line.split("&");
   latestTimes = timeStrings.map(x => parseFloat(x));
-  timesController.saveTimes(latestTimes);
+  studentController.saveTimes(latestTimes);
   //console.log(latestTimes);
 });
 
