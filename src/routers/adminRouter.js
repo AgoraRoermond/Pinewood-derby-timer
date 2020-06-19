@@ -4,5 +4,6 @@ const adminRouter = express.Router()
 
 adminRouter.get('/allTimes', adminController.showTimes);
 adminRouter.get('/acounts', adminController.showAcounts);
+adminRouter.get('/users', adminController.showUsers);
 
 module.exports = adminRouter;
