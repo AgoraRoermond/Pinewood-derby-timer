@@ -1,7 +1,8 @@
 const express = require('express')
-const timesController = require('../controllers/adminController');
+const adminController = require('../controllers/adminController');
 const adminRouter = express.Router()
 
-adminRouter.get('/admin', timesController.showTimes);
+adminRouter.get('/allTimes', adminController.showTimes);
+adminRouter.get('/acounts', adminController.showAcounts);
 
 module.exports = adminRouter;

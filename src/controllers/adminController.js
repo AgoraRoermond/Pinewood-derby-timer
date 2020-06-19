@@ -1,11 +1,16 @@
 const sql = require('../db.js');
 
 async function showTimes(request, response) {
-    admin = await sql.query("SELECT * FROM times");
-    response.render('pages/admin/admin', { admin });
+    allTimes = await sql.query("SELECT * FROM times");
+    response.render('pages/admin/allTimes', { allTimes });
+}
+async function showAcounts(request, response) {
+    acounts = await sql.query("SELECT * FROM times");
+    response.render('pages/admin/acounts', { acounts });
 }
 
 
 module.exports = {
-    showTimes
-};
+    showTimes,
+    showAcounts
+}; 
