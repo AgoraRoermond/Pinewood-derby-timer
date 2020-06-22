@@ -93,7 +93,7 @@ div.Login-knop{
     padding: 0;
     overflow: hidden;}
 
-input.button {
+button.button {
         background-color: #0B8787;
         color: white;
         padding: 14px 20px;

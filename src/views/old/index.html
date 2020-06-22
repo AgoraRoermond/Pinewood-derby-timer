@@ -2,20 +2,7 @@
     <head>
         <link rel="stylesheet" href="website.css">
     </head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    var username,;
-    $("#submit").click(function(){
-        username=$("#username").val();
-        $.post("/login",{username:username},function(data){
-            if(data==='done') {
-                window.location.href="/ingelogd.html";
-            }
-        });
-    });
-});
-</script>
+
     <header>
         <div class="header">
             <h1> Derby timing Niekee login</h1>
@@ -27,6 +14,8 @@ $(document).ready(function(){
     <br>
     <br>
     <body style="text-align: center;">
-        <input type="text" size="40" placeholder="gebruikersnaam" id="username"><br />
-        <input class="button" type="button" value="login" id="submit">
+        <form method="post" action="/submit">
+        <input type="number" size="40" placeholder="gebruikersnaam" name="username" required><br />
+        <button class="button" type="submit">Inloggen</button><br>
+        </form>
     </body>
