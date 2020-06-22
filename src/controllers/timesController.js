@@ -4,7 +4,7 @@ const sql = require('../db.js');
 
 async function getTimes(request, response) {
     var studentId = 3;
-    times = await sql.query("SELECT * FROM times WHERE id=?", [studentId]);
+    times = await sql.query("SELECT * FROM times WHERE studentId=?", [studentId]);
     response.render('pages/times/times', { times });
 }
 
