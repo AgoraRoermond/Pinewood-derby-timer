@@ -15,7 +15,7 @@ async function showUsers(request, response) {
 async function userData(request, response) {
     var userId = 10521;
     userData = await sql.query("SELECT * FROM times WHERE id=?", [userId]);
-    response.render('pages/userId/users', { userData });
+    response.render('pages/admin/users', { userData });
 }
 
 module.exports = {
@@ -23,4 +23,4 @@ module.exports = {
     showAcounts,
     showUsers,
     userData
-}; 
+};
