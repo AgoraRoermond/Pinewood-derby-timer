@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    form {
+  display: block;
+  margin-top: 0em;
+}
+</style>
+<head>
+    <%- include ('../../partials/admin/head') %>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            users
+        </h1>
+        <%- include ('../../partials/admin/nav') %>
+    </header>
+
+    <h1>Users</h1>
+
+    <form method="post">
+      <label for="studentName">studentName  :</label>
+      <input type="text" id="studentName" name="studentName">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+
+
+
+</body>
+</html>

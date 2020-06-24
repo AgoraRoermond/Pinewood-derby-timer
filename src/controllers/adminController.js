@@ -17,6 +17,16 @@ async function userData(request, response) {
     userData = await sql.query("SELECT * FROM times WHERE id=?", [userId]);
     response.render('pages/admin/users', { userData });
 }
+async function getNewUser(request, response) {
+    response.render('pages/admin/newUser');
+
+}
+async function postNewUser(request, response) {
+    var studentName = request.body.studentName;
+    console.log(studentName);
+    response.redirect('/admin/users');
+
+}
 
 module.exports = {
     showTimes,
