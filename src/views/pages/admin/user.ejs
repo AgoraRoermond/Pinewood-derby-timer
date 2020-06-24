@@ -1,0 +1,44 @@
+<!-- views/pages/students/allStudents.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../partials/admin/head') %>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            dit is een test
+        </h1>
+        <%- include ('../../partials/admin/nav') %>
+    </header>
+
+    <footer>
+        <%- include ('../../partials/admin/footer') %>
+    </footer>
+
+
+    <main>
+        <table>
+          <tr>
+            <th>studentId</th>
+            <th>studentName</th>
+          </tr>
+
+          <% for(let i = 0; i < getAcounts.length; i++) { %>
+          <tr>
+            <td><%= getAcounts[i].id %></td>
+            <td><%= getAcounts[i].name %></td>
+          </tr>
+          <% } %>
+        </table>
+    </main>
+
+
+
+
+</body>
+</html>

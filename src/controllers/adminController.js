@@ -9,13 +9,14 @@ async function showAcounts(request, response) {
     response.render('pages/admin/acounts', { acounts });
 }
 async function showUsers(request, response) {
-    response.render('pages/admin/users');
+    getAcounts = await sql.query("SELECT studentId FROM users");
+    response.render('pages/admin/user', { getAcounts });
 
 }
 async function userData(request, response) {
     var userId = 10521;
     userData = await sql.query("SELECT * FROM times WHERE id=?", [userId]);
-    response.render('pages/admin/users', { userData });
+    response.render('pages/admin/user', { userData });
 }
 async function getNewUser(request, response) {
     response.render('pages/admin/newUser');
@@ -24,7 +25,7 @@ async function getNewUser(request, response) {
 async function postNewUser(request, response) {
     var studentName = request.body.studentName;
     console.log(studentName);
-    response.redirect('/admin/users');
+    response.redirect('/admin/user');
 
 }
 
@@ -32,5 +33,7 @@ module.exports = {
     showTimes,
     showAcounts,
     showUsers,
-    userData
+    userData,
+    getNewUser,
+    postNewUser
 };
