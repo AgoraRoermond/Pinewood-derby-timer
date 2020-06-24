@@ -9,7 +9,7 @@ async function showAcounts(request, response) {
     response.render('pages/admin/acounts', { acounts });
 }
 async function getUser(request, response) {
-    getAcounts = await sql.query("SELECT studentId FROM users");
+    getAcounts = await sql.query("SELECT studentId FROM times");
     response.render('pages/admin/user', { getAcounts });
 
 }
