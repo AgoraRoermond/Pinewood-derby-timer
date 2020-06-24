@@ -8,7 +8,7 @@ async function showAcounts(request, response) {
     acounts = await sql.query("SELECT * FROM times");
     response.render('pages/admin/acounts', { acounts });
 }
-async function showUsers(request, response) {
+async function getUser(request, response) {
     getAcounts = await sql.query("SELECT studentId FROM users");
     response.render('pages/admin/user', { getAcounts });
 
@@ -32,7 +32,7 @@ async function postNewUser(request, response) {
 module.exports = {
     showTimes,
     showAcounts,
-    showUsers,
+    getUser,
     userData,
     getNewUser,
     postNewUser
