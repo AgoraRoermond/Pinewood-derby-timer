@@ -33,7 +33,7 @@ async function getNewUser(request, response) {
 async function postNewUser(request, response) {
   var studentName = request.body.studentName;
   console.log(studentName);
-  await sql.query("INSERT INTO times(StudentName) VALUES(" + studentName + ")");
+var studentName =  "INSERT INTO times (StudentName) VALUES ('studentName')";
   response.redirect('/admin/user');
 
 }
