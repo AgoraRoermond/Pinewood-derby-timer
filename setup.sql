@@ -1,18 +1,23 @@
-DROP TABLE IF EXISTS `students`;
-CREATE TABLE `students` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `class` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-INSERT INTO `students` (`name`,`class`) VALUES ('Jetse','VWO5'),('Martijn','VWO5'),('Timo','VWO3'), ('David','HAVO4'), ('Mees','HAVO4');
 
-DROP TABLE IF EXISTS `times`;
-CREATE TABLE `times` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `studentName` varchar(45),
-  `time` varchar(45) DEFAULT NULL,
-  `attempt` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE times ( 
+  id int(11) NOT NULL AUTO_INCREMENT,
+  studentName varchar(45) DEFAULT NULL,
+  time varchar(45) DEFAULT NULL,
+  attempt varchar(45) DEFAULT NULL,
+  PRIMARY KEY (id)
 );
-INSERT INTO `times` (`time`,`attempt`,`studentName`) VALUES ('1.54','1'),('1.52','1'),('David','1');
+INSERT INTO times (time,attempt) VALUES (1.54,1),(1.52,1);
+
+CREATE TABLE teacher ( 
+  id int(11) NOT NULL AUTO_INCREMENT,
+  teacherName varchar(45) DEFAULT null,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE teacher_times ( 
+  id int(11) NOT NULL AUTO_INCREMENT,
+  teacherId int(11) default null,
+  time varchar(45) DEFAULT NULL,
+  attempt varchar(45) DEFAULT NULL,
+  PRIMARY KEY (id)
+);

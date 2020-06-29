@@ -1,0 +1,34 @@
+<head>
+    <%- include ('../../partials/admin/head') %>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            user acounts
+        </h1>
+        <%- include ('../../partials/admin/nav') %>
+    </header>
+
+    <a href="/admin/teacher/new">Add user</a>
+    <main>
+        <table>
+          <tr>
+            <th>studentName</th>
+          </tr>
+
+          <% for(let i = 0; i < getAcounts.length; i++) { %>
+          <tr>
+            <td><%= getAcounts[i].studentName %></td>
+          </tr>
+          <% } %>
+        </table>
+    </main>
+
+    <footer>
+        <%- include ('../../partials/admin/footer') %>
+    </footer>
+
+</body>
+</html>

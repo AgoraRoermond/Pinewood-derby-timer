@@ -20,14 +20,12 @@
     <main>
         <table>
           <tr>
-            <th>studentId</th>
             <th>studentName</th>
           </tr>
 
           <% for(let i = 0; i < getAcounts.length; i++) { %>
           <tr>
-            <td><%= getAcounts[i].id %></td>
-            <td><%= getAcounts[i].name %></td>
+            <td><%= getAcounts[i].studentName %></td>
           </tr>
           <% } %>
         </table>
