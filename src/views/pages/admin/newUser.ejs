@@ -1,37 +1,47 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    form {
-  display: block;
-  margin-top: 0em;
-}
+  form {
+    display: block;
+    margin-top: 0em;
+  }
 </style>
+
 <head>
-    <%- include ('../../partials/admin/head') %>
+  <%- include ('../../partials/admin/head') %>
 </head>
 
 <body>
 
-    <header>
-        <h1>
-            users
-        </h1>
-        <%- include ('../../partials/admin/nav') %>
-    </header>
+  <header>
+    <h1>
+      users
+    </h1>
+    <%- include ('../../partials/admin/nav') %>
+  </header>
 
-    <h1>Users</h1>
+  <h1>Users</h1>
 
-    <form method="post">
-      <label for="studentName">studentName  :</label>
-      <br></br>
-      <input type="text" id="studentName" name="studentName">
-      <br></br>
-      <input type="submit" value="Submit">
-    </form>
-
-
-
-
+  <form method="post">
+    <label for="studentName">Name :</label>
+    <br></br>
+    <input type="text" id="studentName" name="studentName">
+    <br></br>
+    <label for="studentEmail">Email :</label>
+    <br></br>
+    <input type="text" id="studentEmail" name="studentEmail">
+    <br></br>
+    <input type="radio" id="teacherRole" name="role" value="teacher">
+    <label for="teacherRole">teacher</label>
+    <br></br>
+    <input type="radio" id="studentRole" name="role" value="student">
+    <label for="studentRole">student</label>
+    <br></br>
+    <input type="submit" value="Submit">
+  </form>
+<footer>
+  <%- include ('../../partials/admin/footer') %>
+</footer>
 </body>
+
 </html>

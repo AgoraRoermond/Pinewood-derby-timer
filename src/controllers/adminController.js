@@ -32,9 +32,12 @@ async function getNewUser(request, response) {
 }
 async function postNewUser(request, response) {
   var studentName = request.body.studentName;
+  var studentEmail = request.body.studentEmail;
+  var role = request.body.role;
   console.log(studentName);
-    postNewUser = await sql.query("INSERT INTO times (studentName) VALUES (?)", [studentName]);
-    console.log(postNewUser);
+  console.log(studentEmail);
+  console.log(role);
+  await sql.query("INSERT INTO times (studentName) VALUES (?)", [studentName]);
   response.redirect('/admin/user');
 }
 async function postNewTeacher(request, response) {
@@ -51,7 +54,7 @@ async function getTeacher(request, response) {
     getTeacher
   });
 }
-6
+
   async function postNewTeacherTime(request, response) {
     var teacherName = request.body.teacherName;
     var time = request.body.time;
@@ -60,7 +63,7 @@ async function getTeacher(request, response) {
       postNewTeacherTime = await sql.query("INSERT INTO teacher (teacherid,time,attempt) VALUES (?,?,?)", [teacherName,time,attempt]);
       console.log(postNewTeacher);
     response.redirect('page/admin/teacherTime');
-  
+
   }
   async function getTeacherTimes(request, response) {
     getTeacherTime = await sql.query("SELECT * FROM teacher");
@@ -68,7 +71,7 @@ async function getTeacher(request, response) {
       getTeacherTime
     });
   }
-  
+
   module.exports = {
   showTimes,
   showAcounts,
