@@ -79,8 +79,8 @@ async function postNewUser(request, response) {
   userData,
   getNewUser,
   postNewUser,
-  postNewTeacher,
-  getTeacher,
-  getTeacherTimes,
-  postNewTeacherTime,
+  // postNewTeacher,
+  // getTeacher,
+  // getTeacherTimes,
+  // postNewTeacherTime,
 }
