@@ -13,7 +13,7 @@ npm install
 ### Setup database
 This server relies on a mysql/mariadb server on `localhost:3306` with credentials `root:AgoraRoermond`. A mariadb server can be easily setup using docker:
 ```bash
-docker run --rm -it --name Pinewood-derby-mariadb -e MYSQL_ROOT_PASSWORD=AgoraRoermond -e MYSQL_DATABASE=Derby -p 3306:3306 -v $(pwd)/setup.sql:/docker-entrypoint-initdb.d/setup.sql mariadb
+docker run --rm -it --name Pinewood-derby-mariadb -e MYSQL_ROOT_PASSWORD=AgoraRoermond -e MYSQL_DATABASE=derby -p 3306:3306 -v $(pwd)/setup.sql:/docker-entrypoint-initdb.d/setup.sql mariadb
 ```
 It's also possible to start a phpmyadmin server using docker. The following command starts a phpmyadmin server on `localhost:8000` with the same credentials as mariadb
 ```bash

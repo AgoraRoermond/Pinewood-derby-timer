@@ -1,18 +1,22 @@
-DROP TABLE IF EXISTS `students`;
-CREATE TABLE `students` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `class` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+DROP TABLE IF EXISTS `accounts`;
+CREATE TABLE `accounts` (
+  `email` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `is_teacher` BOOLEAN NOT NULL,
+  `password` VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`email`)
 );
-INSERT INTO `students` (`name`,`class`) VALUES ('Jetse','VWO5'),('Martijn','VWO5'),('Timo','VWO3'), ('David','HAVO4'), ('Mees','HAVO4');
+INSERT INTO `accounts` (`email`,`name`, `is_teacher`) VALUES
+  ('somn10231@soml.nl','Jetse Verschuren', 1);
+
 
 DROP TABLE IF EXISTS `times`;
 CREATE TABLE times (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  'studentId' varchar(45) DEFAULT NULL,
-  `time` varchar(45) DEFAULT NULL,
-  `attempt` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `student_mail` VARCHAR(45) NOT NULL,
+  `time` DECIMAL(5,2) DEFAULT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `student_mail` (`student_mail`),
+  CONSTRAINT `student_mail` FOREIGN KEY (`student_mail`) REFERENCES `accounts`(`email`)
 );
-INSERT INTO `times` (`time`,`attempt`) VALUES ('1.54','1'),('1.52','1');
