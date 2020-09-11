@@ -18,15 +18,17 @@
     <table>
       <tr>
         <th>Id</th>
+        <th>Student mail</th>
         <th>Time</th>
-        <th>Attempt</th>
+        <th>Timestamp</th>
       </tr>
 
       <% for(let i = 0; i < times.length; i++) { %>
       <tr>
         <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
         <td><%= times[i].time %></td>
-        <td><%= times[i].attempt %></td>
+        <td><%= times[i].timestamp %></td>
       </tr>
       <% } %>
     </table>

@@ -1,10 +1,11 @@
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
-const timesController = require('controllers/timesController.js');
 
-const path = "COM3";
+const path = "COM5";
 
-const port = new SerialPort(path, {baudRate: 115200});
+const port = new SerialPort(path, {
+  baudRate: 115200
+});
 const parser = port.pipe(new Readline());
 var latestTimes = [0, 0, 0];
 
@@ -17,8 +18,6 @@ parser.on('data', line => {
 function getLatestTimes() {
   return latestTimes;
 }
-
-saveTimes(latestTimes);
 
 module.exports = {
   getLatestTimes,
