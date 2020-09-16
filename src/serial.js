@@ -19,6 +19,11 @@ function getLatestTimes() {
   return latestTimes;
 }
 
+function clearLatestTime(index) {
+  latestTimes[index] = null;
+}
+
 module.exports = {
   getLatestTimes,
+  clearLatestTime,
 }

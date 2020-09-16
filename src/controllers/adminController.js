@@ -10,23 +10,26 @@ async function getTimes(request, response) {
 
 function getAssignTimes(request, response) {
   var unassignedTimes = serial.getLatestTimes();
-  return response.render('pages/admin/getAssignTimes', {
+  return response.render('pages/admin/AssignTimes', {
     unassignedTimes,
   });
 }
 
 async function postAssignTimes(request, response) {
-  var {studentMail0, studentMail1, studentMail2} = request.body;
+  var studentMails = request.body.studentMail;
   var assignedTimes = serial.getLatestTimes();
-  // console.log(studentMail0);
-  // console.log(studentMail1);
-  // console.log(studentMail2);
-  await sql.query("INSERT INTO `times` (`student_mail`,`time`) VALUES (?,?);", [studentMail0, assignedTimes[0]]);
-  await sql.query("INSERT INTO `times` (`student_mail`,`time`) VALUES (?,?);", [studentMail1, assignedTimes[1]]);
-  await sql.query("INSERT INTO `times` (`student_mail`,`time`) VALUES (?,?);", [studentMail2, assignedTimes[2]]);
-  return response.render('pages/index');
+  return Promise.all(studentMails.map((studentMail, index) => {
+      if (!studentMail) return Promise.resolve();
+      if (assignedTimes[index] == null) return Promise.resolve();
+      return sql.query("INSERT INTO `times` (`student_mail`,`time`) VALUES (?,?);", [studentMail, assignedTimes[index]])
+        .then(() => serial.clearLatestTime(index));
+    }))
+    .then(() => response.redirect("/admin/times"))
+    .catch(error => response.render("pages/admin/assignTimes", {
+      error: "Unknown email",
+      unassignedTimes: assignedTimes,
+    }));
 }
-
 
 
 module.exports = {
