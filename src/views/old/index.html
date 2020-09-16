@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="website.css">
     </head>
+
     <header>
         <div class="header">
             <h1> Derby timing Niekee login</h1>
@@ -10,10 +11,12 @@
             </ul>
         </div>
     </header>
-    <body style= "text-align: center">
-        <form action="ingelogd.html" method="post" style="font-size: 40px;">
-                <label for="username">Username</label><br>
-                <input type="number" id="username" name="username" placeholder="nummer" required><br>
-                <button type="submit" class="button">Inloggen</button><br>
-          </form>
-        </body>
+    <br>
+    <br>
+    <body style="text-align: center;">
+        <form method="post" action="/submit">
+        <input type="number" size="40" placeholder="gebruikersnaam" name="Username" required><br/>
+        <input type="number" size="40" placeholder="Wachtwoord" name="Wachtwoord" required><br/>
+        <input class="button" type="submit" placeholder="login"><br>
+        </form>
+    </body>

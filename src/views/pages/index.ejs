@@ -1,29 +1,28 @@
-<!-- views/pages/index.ejs -->
+<html>
+    <head>
+        <link rel="stylesheet" href="/Users/job/Documents/GitHub/Pinewood-derby-timer/public/css/website.css">
+    </head>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include ('../partials/head') %>
-</head>
-<body>
+    <header>
+        <div class="header">
+            <h1> Derby timing Niekee login</h1>
+            </ul>
+        </div>
+    </header>
+    <br>
+    <br>
+    <body style="text-align: center;">
+        <form method="post">
+            <label for="email">Email:</label>
+            <br/><br/>
+            <input type="text" size="40" id="LoginEmail" name="LoginEmail" required>
+            <br/><br/>
 
-<header>
-    <h1>
-      Home page
-    </h1>
-    <%- include ('../partials/nav') %>
-</header>
+            <label for="LoginPassword">Password</label>
+            <br/><br/>
+            <input type="text" size="40" id="LoginPassword" name="LoginPassword" required>
+            <br/><br/>
 
-<main>
-    <div>
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
-    </div>
-</main>
-
-<footer>
-    <%- include ('../partials/footer') %>
-</footer>
-
-</body>
-</html>
+            <input type="submit" value="submit">
+        </form>
+    </body>
