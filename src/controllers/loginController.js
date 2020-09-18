@@ -10,12 +10,12 @@ async function postLogin(request, response) {
     console.log(loginEmail);
     console.log(loginPassword);
     if (loginEmail && loginPassword) {
-        sql.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [loginPassword, loginEmail], function(error, results, fields) {
+        sql.query('SELECT * FROM accounts WHERE email = ? AND password = ?', [loginPassword, loginEmail], function(error, results, fields) {
             //return response.redirect('/login/login');
             if (results.length > 0) {
                 request.session.loginEmail = true;
                 request.session.loginEmail = loginEmail;
-                response.redirect('/login');
+                response.redirect('admin/times');
             } else {
                 response.send('Incorrect Username and/or Password!');
             }
