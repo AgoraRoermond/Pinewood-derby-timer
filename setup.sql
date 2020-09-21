@@ -6,8 +6,8 @@ CREATE TABLE `accounts` (
   `password` VARCHAR(45) DEFAULT NULL,
   PRIMARY KEY (`email`)
 );
-INSERT INTO `accounts` (`email`,`name`, `is_teacher`) VALUES
-  ('somn10231@soml.nl','Jetse Verschuren', 1);
+INSERT INTO `accounts` (`email`,`name`, `is_teacher`,`password`) VALUES
+  ('somn10231@soml.nl','Jetse Verschuren', 1, 'dabs');
 
 
 DROP TABLE IF EXISTS `times`;
