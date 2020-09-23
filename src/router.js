@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.use('/admin', adminRouter);
 
-router.use('/login', authRouter);
+router.use('/auth', authRouter);
 
 router.get('/', (request, response) => {
   response.render("pages/index");
