@@ -5,5 +5,7 @@ const adminRouter = express.Router();
 
 
 adminRouter.get('/times', adminController.getTimes);
+adminRouter.get('/assignTimes', adminController.getAssignTimes);
+adminRouter.post('/assignTimes', adminController.postAssignTimes);
 
 module.exports = adminRouter;

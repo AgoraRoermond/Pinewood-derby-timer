@@ -7,7 +7,7 @@ const port = new SerialPort(path, {
   baudRate: 115200
 });
 const parser = port.pipe(new Readline());
-var latestTimes = [0, 0, 0];
+var latestTimes = [1.02, 2.55, 9.87];
 
 port.on('error', err => console.log("Couldn't open serial port"));
 parser.on('data', line => {
@@ -19,6 +19,11 @@ function getLatestTimes() {
   return latestTimes;
 }
 
+function clearLatestTime(index) {
+  latestTimes[index] = null;
+}
+
 module.exports = {
   getLatestTimes,
+  clearLatestTime,
 }
