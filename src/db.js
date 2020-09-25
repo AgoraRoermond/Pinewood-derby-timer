@@ -17,6 +17,10 @@ var connection = mysql.createConnection({
 let lastQueryTime = -1;
 
 connection.connect(err => {
+  if(err.code === "ECONNREFUSED") {
+    console.error("\x1b[31mCouldn't connect to the database. Is it running?\x1b[0m");
+    process.exit();
+  }
   if (err) throw err;
   lastQueryTime = (new Date()).getTime();
 });
