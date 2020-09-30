@@ -1,5 +1,3 @@
-<!-- views/pages/students/allStudents.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,69 +8,24 @@
 
 <header>
     <h1>
-      Studen times
+        student times
     </h1>
     <%- include ('../../partials/nav') %>
 </header>
 
-<!-- De tabellen met de tijden-->
+<!--nog in te vullen tabel met tijden-->
 <main>
     <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
-    </table>
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
-    </table>
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
+        <tr>
+            <th>Baan 1</th>
+            <th>Baan 2</th>
+            <th>Baan 3</th>
+        </tr>
+        <!--nog in te vullen dingen-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
 </main>
-
-<footer>
-    <%- include ('../../partials/footer') %>
-</footer>
-
-</body>
-</html>

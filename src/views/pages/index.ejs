@@ -10,24 +10,98 @@
     <br>
     <br>
 
-    <!-- Login form-->
+<!-- Login form-->
     <body style="text-align: center;    background-color: #efefef;">
         <form method="post">
+<!--gebruikersnaam-->
             <label style="text-align: 
             center; font-size: 35px;" 
             for="email">Email:</label>
             <br/><br/>
             <input type="text" size="40" id="LoginEmail" name="LoginEmail" required>
             <br/><br/>
-
+<!--wachtwoord-->
             <label style="text-align: center; font-size: 35px;" for="LoginPassword">Password</label>
             <br/><br/>
             <input type="text" size="40" id="LoginPassword" name="LoginPassword" required>
             <br/><br/>
-
+<!--login knop-->
             <input style="font-size: 35px;  
             color: black; 
             background: #0B8787;"   
-            type="submit" value="submit">
+            type="submit" value="Log in">
         </form>
     </body>
+
+<!--De popup voor verkeerde inloggegevens-->
+<style>
+/* Popup container */
+.popup {
+  position: relative;
+  display:inline-flex;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* De daadwerkelijke popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #0B8787;
+  color: #efefef;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Het pijltje van de popup */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0B8787 transparent transparent transparent;
+}
+
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Annimatie van de popup */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+
+<body style="text-align:center">
+<!--de text van de popup-->
+<div class="popup" onclick="myFunction()">om te testen
+  <span class="popuptext" id="myPopup">U heeft het verkeerde gebruikernaams/wachtwoord ingevuld</span>
+</div>
+
+<!--script voor de popup veranderen-->
+<script>
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
