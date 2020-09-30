@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../../partials/head-admind.ejs') %>
+</head>
+<body>
+
+<header>
+    <h1>
+      my times
+    </h1>
+</header>
+
+<main>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>Time</th>
+        <th>Timestamp</th>
+      </tr>
+
+      <% for(let i = 0; i < times.length; i++) { %>
+      <tr>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
+        <td><%= times[i].time %></td>
+        <td><%= times[i].timestamp %></td>
+      </tr>
+      <% } %>
+    </table>
+</main>
+
+<footer>
+    <%- include ('../../partials/footer') %>
+</footer>
+
+</body>
+</html>
