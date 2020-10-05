@@ -20,8 +20,10 @@
   <form method="post">
     <label for="studenMail0">Email:</label>
     <select id="studentMail0" name="studentMail[]">
-      <!-- value in vullen met variabelen-->
-      <option value="  ">  </option>
+      <% for(let i = 0; i < accountList.length; i++) { %>
+        <option value="<%= accountList[i].email %>"> <%= accountList[i].email %> </option>
+     <% } %>
+
     <%= unassignedTimes[0] %>
     <br>
     <form method="post">
