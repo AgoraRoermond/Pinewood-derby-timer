@@ -1,0 +1,45 @@
+<!-- views/pages/students/allStudents.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="Admin-styles.css">
+    <%- include ('../../partials/head-admind.ejs') %>
+</head>
+<body>
+
+<header>
+    <h1>
+      Asign student times
+    </h1>
+    <%- include ('../../partials/nav') %>
+</header>
+
+<!-- Het formulier voor tijden aan studenten te koppelen-->
+<main>
+  <form method="post">
+    <label for="studenMail0">Email:</label>
+    <select id="studentMail0" name="studentMail[]">
+      <!-- value in vullen met variabelen-->
+      <option value="  ">  </option>
+    <%= unassignedTimes[0] %>
+    <br>
+    <form method="post">
+    <label for="studenMail1">Email:</label>
+    <select id="studentMail1" name="studentMail[]">
+      <!-- value in vullen met variabelen-->
+      <option value="  ">  </option>
+    <%= unassignedTimes[1] %>
+    <br>
+    <form method="post">
+    <label for="studenMail2">Email:</label>
+    <selectid="studentMail2" name="studentMail[]">
+    <!-- value in vullen met variabelen-->
+    <option value="  ">  </option>
+    <%= unassignedTimes[2] %>
+    <br>
+  </form>
+</main>
+
+</body>
+</html>

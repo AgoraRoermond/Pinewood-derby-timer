@@ -1,29 +1,133 @@
-<!-- views/pages/index.ejs -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include ('../partials/head') %>
-</head>
-<body>
-
-<header>
-    <h1>
-      Home page
-    </h1>
-    <%- include ('../partials/nav') %>
-</header>
-
-<main>
-    <div>
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
-    </div>
+<html>
+    <header style="
+    background: #0B8787;
+    text-align: center;
+    color: black;
+    font-size: 35px;">
+        <div>
+            <h1> Derby timing Niekee login</h1>
+        </div>
+    </header>
+    <br>
+    <br>
+<main class="item3" style="text-align: center;
+background-color: #efefef;">
+<!-- Login form-->
+        <form method="post">
+<!--gebruikersnaam-->
+            <label style="text-align:
+            center; font-size: 35px;"
+            for="email">Email</label>
+            <br/><br/>
+            <input type="text" size="40" id="LoginEmail" name="LoginEmail" required>
+            <br/><br/>
+<!--wachtwoord-->
+            <label style="text-align: center; font-size: 35px;" for="LoginPassword">Password</label>
+            <br/><br/>
+            <input type="text" size="40" id="LoginPassword" name="LoginPassword" required>
+            <br/><br/>
+<!--login knop-->
+            <input style="font-size: 35px;
+            color: black;
+            background: #0B8787;"
+            type="submit" value="Log in">
+        </form>
 </main>
+<right>
+    <table class="item4">
+        <tr>
+            <th>Baan 1</th>
+            <th>Baan 2</th>
+            <th>Baan 3</th>
+        </tr>
+        <!--nog in te vullen variabelen-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</right>
 
-<footer>
-    <%- include ('../partials/footer') %>
-</footer>
 
-</body>
-</html>
+<style>
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.display-container > main{
+  display: grid;}
+.display-container > right{
+  display: grid;}
+
+/* Popup container */
+.popup {
+  position: relative;
+  display:inline-flex;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* De daadwerkelijke popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #0B8787;
+  color: #efefef;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Het pijltje van de popup */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0B8787 transparent transparent transparent;
+}
+
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Annimatie van de popup */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+
+<body style="text-align:center">
+<!--de text van de popup-->
+<div class="popup" onclick="myFunction()">om te testen
+  <span class="popuptext" id="myPopup">U heeft het verkeerde gebruikernaams/wachtwoord ingevuld</span>
+</div>
+
+<!--script voor de popup veranderen-->
+<script>
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>

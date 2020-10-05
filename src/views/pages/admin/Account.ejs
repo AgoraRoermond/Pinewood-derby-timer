@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Admin-styles.css">
+    <%- include ('../../partials/head-admind.ejs') %>
+</head>
+<body>
+
+<header>
+    <h1>
+      student acounts
+    </h1>
+    <%- include ('../../partials/nav') %>
+</header>
+<!--tabel 1 accounts-->
+<main>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+      </tr>
+      <tr>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
+      </tr>
+      <% } %>
+    </table>
+</main>
+
+<footer>
+    <%- include ('../../partials/footer') %>
+</footer>
+
+</body>
+</html>

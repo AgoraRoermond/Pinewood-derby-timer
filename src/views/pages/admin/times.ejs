@@ -1,42 +1,31 @@
-<!-- views/pages/students/allStudents.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include ('../../partials/head') %>
+  <link rel="stylesheet" href="Admin-styles.css">
+    <%- include ('../../partials/head-admind.ejs') %>
 </head>
 <body>
 
 <header>
     <h1>
-      my times
+        student times
     </h1>
     <%- include ('../../partials/nav') %>
 </header>
 
+<!--nog in te vullen tabel met tijden-->
 <main>
     <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
+        <tr>
+            <th>Baan 1</th>
+            <th>Baan 2</th>
+            <th>Baan 3</th>
+        </tr>
+        <!--nog in te vullen variabelen-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
 </main>
-
-<footer>
-    <%- include ('../../partials/footer') %>
-</footer>
-
-</body>
-</html>
