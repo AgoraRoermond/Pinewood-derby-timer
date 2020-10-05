@@ -19,7 +19,7 @@ async function postLogin(request, response) {
     request.session.isTeacher = results[0].is_teacher;
 
     if (results[0].is_teacher) {
-      return response.redirect('/admin/admin');
+      return response.redirect('/admin/times');
     } else {
       return response.redirect('/student/student');
     }
