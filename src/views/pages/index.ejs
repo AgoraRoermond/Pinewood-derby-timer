@@ -1,5 +1,6 @@
 <html>
-    <header style="background: #0B8787;
+    <header style="
+    background: #0B8787;
     text-align: center;
     color: black;
     font-size: 35px;">
@@ -9,14 +10,14 @@
     </header>
     <br>
     <br>
-
+<main class="item3" style="text-align: center;
+background-color: #efefef;">
 <!-- Login form-->
-    <body style="text-align: center;    background-color: #efefef;">
         <form method="post">
 <!--gebruikersnaam-->
-            <label style="text-align: 
-            center; font-size: 35px;" 
-            for="email">Email:</label>
+            <label style="text-align:
+            center; font-size: 35px;"
+            for="email">Email</label>
             <br/><br/>
             <input type="text" size="40" id="LoginEmail" name="LoginEmail" required>
             <br/><br/>
@@ -26,15 +27,40 @@
             <input type="text" size="40" id="LoginPassword" name="LoginPassword" required>
             <br/><br/>
 <!--login knop-->
-            <input style="font-size: 35px;  
-            color: black; 
-            background: #0B8787;"   
+            <input style="font-size: 35px;
+            color: black;
+            background: #0B8787;"
             type="submit" value="Log in">
         </form>
-    </body>
+</main>
+<right>
+    <table class="item4">
+        <tr>
+            <th>Baan 1</th>
+            <th>Baan 2</th>
+            <th>Baan 3</th>
+        </tr>
+        <!--nog in te vullen variabelen-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</right>
 
-<!--De popup voor verkeerde inloggegevens-->
+
 <style>
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.display-container > main{
+  display: grid;}
+.display-container > right{
+  display: grid;}
+
 /* Popup container */
 .popup {
   position: relative;
@@ -82,7 +108,7 @@
 
 /* Annimatie van de popup */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
+  from {opacity: 0;}
   to {opacity: 1;}
 }
 

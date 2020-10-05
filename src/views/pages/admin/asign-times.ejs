@@ -15,66 +15,31 @@
     <%- include ('../../partials/nav') %>
 </header>
 
-<!-- De tabellen met de tijden-->
+<!-- Het formulier voor tijden aan studenten te koppelen-->
 <main>
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
-    </table>
-    <!--Tabel 2-->
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
-    </table>
-    <!--Tabel 2-->
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
-      </tr>
-
-      <% for(let i = 0; i < times.length; i++) { %>
-      <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
-      </tr>
-      <% } %>
-    </table>
+  <form method="post">
+    <label for="studenMail0">Email:</label>
+    <select id="studentMail0" name="studentMail[]">
+      <!-- value in vullen met variabelen-->
+      <option value="  ">  </option>
+    <%= unassignedTimes[0] %>
+    <br>
+    <form method="post">
+    <label for="studenMail1">Email:</label>
+    <select id="studentMail1" name="studentMail[]">
+      <!-- value in vullen met variabelen-->
+      <option value="  ">  </option>
+    <%= unassignedTimes[1] %>
+    <br>
+    <form method="post">
+    <label for="studenMail2">Email:</label>
+    <selectid="studentMail2" name="studentMail[]">
+    <!-- value in vullen met variabelen-->
+    <option value="  ">  </option>
+    <%= unassignedTimes[2] %>
+    <br>
+  </form>
 </main>
-
-<footer>
-    <%- include ('../../partials/footer') %>
-</footer>
 
 </body>
 </html>
