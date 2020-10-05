@@ -14,13 +14,16 @@
 <!--tabel 1 accounts-->
 <main>
     <table>
+    <% for(let i = 0; i < accountList.length; i++) { %>
       <tr>
-        <th>Id</th>
+        <th>Naam</th>
         <th>Student mail</th>
+        <th>wachtwoord</th>
       </tr>
       <tr>
         <td><%= times[i].id %></td>
         <td><%= times[i].student_mail %></td>
+        <td>variablen voor wachtwoord</td>
       </tr>
       <% } %>
     </table>
