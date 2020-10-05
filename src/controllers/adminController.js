@@ -8,10 +8,12 @@ async function getTimes(request, response) {
   });
 }
 
-function getAssignTimes(request, response) {
+async function getAssignTimes(request, response) {
+  var accountList = await sql.query("SELECT email FROM accounts");
   var unassignedTimes = serial.getLatestTimes();
   return response.render('pages/admin/AssignTimes', {
     unassignedTimes,
+    accountList,
   });
 }
 
