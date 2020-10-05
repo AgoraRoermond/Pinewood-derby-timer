@@ -17,29 +17,30 @@
 <!-- Het formulier voor tijden aan studenten te koppelen-->
 <main>
   <form method="post">
-    <label for="studenMail0">Email:</label>
-    <select id="studentMail0" name="studentMail[]">
-      <% for(let i = 0; i < accountList.length; i++) { %>
-        <option value="<%= accountList[i].email %>"> <%= accountList[i].email %> </option>
-     <% } %>
 
-    <%= unassignedTimes[0] %>
+    <label for="studenMail0"><%= unassignedTimes[0] %>  Email:</label>
+    <select id="studentMail0" name="studentMail[0]">
+      <% for(let i = 0; i < accountList.length; i++) { %>
+        <option value="<%= accountList[i].email %>"> <%= accountList[i].name %> </option>
+     <% } %>
+    </select>
     <br>
-    <form method="post">
-    <label for="studenMail1">Email:</label>
-    <select id="studentMail1" name="studentMail[]">
-      <!-- value in vullen met variabelen-->
-      <option value="  ">  </option>
-    <%= unassignedTimes[1] %>
+     <label for="studenMail1"><%= unassignedTimes[1] %>  Email:</label>
+     <select id="studentMail1" name="studentMail[1]">
+       <% for(let i = 0; i < accountList.length; i++) { %>
+         <option value="<%= accountList[i].email %>"> <%= accountList[i].name %> </option>
+      <% } %>
+    </select>
     <br>
-    <form method="post">
-    <label for="studenMail2">Email:</label>
-    <selectid="studentMail2" name="studentMail[]">
-    <!-- value in vullen met variabelen-->
-    <option value="  ">  </option>
-    <%= unassignedTimes[2] %>
+     <label for="studenMail2"><%= unassignedTimes[2] %>  Email:</label>
+     <select id="studentMail2" name="studentMail[2]">
+       <% for(let i = 0; i < accountList.length; i++) { %>
+         <option value="<%= accountList[i].email %>"> <%= accountList[i].name %> </option>
+      <% } %>
+    </select>
     <br>
-  </form>
+    <input type="submit" value="Submit">
+    </form>
 </main>
 
 </body>
