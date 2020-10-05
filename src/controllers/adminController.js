@@ -11,7 +11,7 @@ async function getTimes(request, response) {
 async function getAssignTimes(request, response) {
   var accountList = await sql.query("SELECT email FROM accounts");
   var unassignedTimes = serial.getLatestTimes();
-  return response.render('pages/admin/AssignTimes', {
+  return response.render('pages/admin/asign-times', {
     unassignedTimes,
     accountList,
   });
@@ -27,7 +27,7 @@ async function postAssignTimes(request, response) {
         .then(() => serial.clearLatestTime(index));
     }))
     .then(() => response.redirect("/admin/times"))
-    .catch(error => response.render("pages/admin/assignTimes", {
+    .catch(error => response.render("pages/admin/asign-times", {
       error: "Unknown email",
       unassignedTimes: assignedTimes,
     }));
