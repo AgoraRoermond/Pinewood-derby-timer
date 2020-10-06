@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+  <!--the main header-->
+  <%- include ('../../partials/head-student') %>
+
+
+
+  <body>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>Time</th>
+        <th>Timestamp</th>
+      </tr>
+
+      <% for(let i = 0; i < getTimes.length; i++) { %>
+      <tr>
+        <td><%= getTimes[i].id %></td>
+        <td><%= getTimes[i].student_mail %></td>
+        <td><%= getTimes[i].time %></td>
+        <td><%= getTimes[i].timestamp %></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+
+  <footer>
+
+  </footer>
+  <!--the footer partials -->
+  <%- include ('../../partials/footer') %>
+</body>
+
+</html>

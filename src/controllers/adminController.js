@@ -26,7 +26,7 @@ async function postAssignTimes(request, response) {
       return sql.query("INSERT INTO `times` (`student_mail`,`time`) VALUES (?,?);", [studentMail, assignedTimes[index]])
         .then(() => serial.clearLatestTime(index));
     }))
-    .then(() => response.redirect("/admin/times"))
+    .then(() => response.redirect("/admin/assignTimes"))
     .catch(error => response.render("pages/admin/asign-times", {
       error: "Unknown email",
       unassignedTimes: assignedTimes,
