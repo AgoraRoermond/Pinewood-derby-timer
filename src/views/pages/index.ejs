@@ -1,156 +1,67 @@
 <html>
-    <header>
-        <div style="
-        background: #0B8787;
-        text-align: center;
-        color: black;
-        font-size: 35px;">
-            <h1> Derby timing Niekee login</h1>
-        </div>
-    </header>
-    <br>
-    <br>
-<main style="background-color: #efefef;">
-    <div class="form">
-<!-- Login form-->
-        <form method="post">
-<!--gebruikersnaam-->
-            <label style="text-align:
-            center; font-size: 35px;"
-            for="email">Email</label>
-            <br/><br/>
-            <input type="text" size="40" id="loginEmail" name="loginEmail" required>
-            <br/><br/>
-<!--wachtwoord-->
-            <label style="text-align: center; font-size: 35px;" for="loginPassword">Password</label>
-            <br/><br/>
-            <input type="text" size="40" id="loginPassword" name="loginPassword" required>
-            <br/><br/>
-<!--login knop-->
-            <input style="font-size: 35px;
-            color: black;
-            background: #0B8787;"
-            type="submit" value="Log in">
-        </form>
-        <!--de pop up-->
-        <div class="popup" onclick="myFunction()">popup test
-          <span class="popuptext" id="myPopup">U heeft het verkeerde gebruikernaams/wachtwoord ingevuld</span>
-        </div>
+
+<head>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+  <header>
+    <div class="headertext">
+      <h1> Derby timing Niekee login</h1>
     </div>
-</main>
-<right>
-<div class="tabel">
-  <table>
-    <tr>
-      <th>Id</th>
-      <th>Student mail</th>
-      <th>Time</th>
-      <th>Timestamp</th>
-    </tr>
+  </header>
+  <br>
+  <br>
+  <main>
+    <div class="form">
+      <!-- Login form-->
+      <form method="post">
+        <!--gebruikersnaam-->
+        <label class="email" for="email">Email</label>
+        <br /><br />
+        <input type="text" size="40" id="loginEmail" name="loginEmail" required>
+        <br /><br />
+        <!--wachtwoord-->
+        <label class="wachtwoord" for="loginPassword">Password</label>
+        <br /><br />
+        <input type="text" size="40" id="loginPassword" name="loginPassword" required>
+        <br /><br />
+        <!--login knop-->
+        <input class="loginknop" type="submit" value="Log in">
+      </form>
+      <!--de pop up-->
+      <div class="popup" onclick="myFunction()">popup test
+        <span class="popuptext" id="myPopup">U heeft het verkeerde gebruikernaams/wachtwoord ingevuld</span>
+      </div>
+    </div>
+  </main>
+  <div class="tabel">
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>Time</th>
+        <th>Timestamp</th>
+      </tr>
 
-    <% for(let i = 0; i < times.length; i++) { %>
-    <tr>
-      <td><%= times[i].id %></td>
-      <td><%= times[i].student_mail %></td>
-      <td><%= times[i].time %></td>
-      <td><%= times[i].timestamp %></td>
-    </tr>
-    <% } %>
-  </table>
-</div>
-</right>
+      <% for(let i = 0; i < times.length; i++) { %>
+      <tr>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
+        <td><%= times[i].time %></td>
+        <td><%= times[i].timestamp %></td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
 
-<style>
+  <!--script voor de popup veranderen-->
+  <script>
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  </script>
+</body>
 
-html{background-color: #efefef;}
-
-/*tijden tabel*/
-.tabel{
-  position: absolute;
-  text-align: center;
-  left: 0px;
-  width: 50%;
-  height: 100%;
-  padding: 10px solid #0B8787;
-}
-table{border-collapse: collapse;}
-
-table, td, th {
-  border: 2px solid black;
-  width: inherit;
-}
-
-/*form*/
-.form {
-  position: absolute;
-  text-align: center;
-  right: 0px;
-  width: 50%;
-  height: 100%;
-  padding: 10px solid #0B8787;
-}
-
-/* Popup container */
-.popup {
-  position: relative;
-  display:inline-flex;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* De daadwerkelijke popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: fit-content;
-  background-color: #0B8787;
-  color: #efefef;
-  text-align: center;
-  border-radius: 10px;
-  padding: 20px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Het pijltje van de popup */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #0B8787 transparent transparent transparent;
-}
-
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Annimatie van de popup */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
-
-<!--script voor de popup veranderen-->
-<script>
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
+</html>

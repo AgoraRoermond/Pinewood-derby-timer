@@ -1,0 +1,126 @@
+body {
+  margin: 0
+}
+
+html {
+  background-color: #efefef;
+}
+
+.headertext {
+  grid-area: header;
+  background: #0B8787;
+  text-align: center;
+  color: black;
+  font-size: 35px;
+}
+
+.email {
+  text-align: center;
+  font-size: 35px;
+}
+
+.wachtwoord {
+  text-align: center;
+  font-size: 35px;
+}
+
+.loginknop {
+  font-size: 35px;
+  color: black;
+  background: #0B8787;
+}
+
+/*tijden tabel*/
+.tabel {
+  grid-area: main;
+  position: absolute;
+  text-align: center;
+  left: 8px;
+  width: 50%;
+  height: 100%;
+  padding: 10px solid #0B8787;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 2px solid black;
+  width: inherit;
+}
+
+.form {
+  grid-area: right;
+  position: absolute;
+  text-align: center;
+  right: 8px;
+  height: auto;
+  border: 5px solid #0B8787;
+}
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* De daadwerkelijke popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #0B8787;
+  color: #efefef;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Het pijltje van de popup */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0B8787 transparent transparent transparent;
+}
+
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Annimatie van de popup */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
