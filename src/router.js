@@ -8,7 +8,7 @@ router.use('/admin', adminRouter);
 router.use('/auth', authRouter);
 
 router.get('/', (request, response) => {
-  response.render("pages/index");
+  response.redirect("/auth/login");
 })
 
 module.exports = router;
