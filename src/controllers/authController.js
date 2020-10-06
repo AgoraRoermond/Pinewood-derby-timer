@@ -2,7 +2,10 @@ const sql = require('../db.js');
 
 
 async function getLogin(request, response) {
-  return response.render('pages/login/login')
+  var times = await sql.query("SELECT * FROM times");
+  return response.render('pages/index', {
+    times,
+  });
 }
 
 async function postLogin(request, response) {
@@ -28,6 +31,9 @@ async function postLogin(request, response) {
     return response.send("An internal error occured");
   }
 }
+
+
+
 
 
 module.exports = {
