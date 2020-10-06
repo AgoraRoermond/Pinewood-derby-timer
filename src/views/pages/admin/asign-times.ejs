@@ -7,6 +7,10 @@
 </head>
 
 <body>
+  <!--the main header-->
+  <%- include ('../../partials/head-admin') %>
+  <!--the main nav for navigation-->
+  <%- include ('../../partials/nav') %>
 
   <!-- Het formulier voor tijden aan studenten te koppelen-->
   <main>
@@ -35,13 +39,14 @@
         <% for(let i = 0; i < accountList.length; i++) { %>
         <option value="<%= accountList[i].email%>"> <%= accountList[i].name %>. </option>
         <% } %>
-        </select>
-        <%= unassignedTimes[2] %>
-        <br>
-        <input type="submit" value="Voer in">
+      </select>
+      <%= unassignedTimes[2] %>
+      <br>
+      <input type="submit" value="Voer in">
     </form>
   </main>
-
+  <!--the footer partials -->
+  <%- include ('../../partials/footer') %>
 </body>
 
 </html>
