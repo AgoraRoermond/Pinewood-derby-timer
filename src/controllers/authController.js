@@ -2,7 +2,7 @@ const sql = require('../db.js');
 
 
 async function getLogin(request, response) {
-  var times = await sql.query("SELECT * FROM times");
+  var times = await sql.query("SELECT * FROM times ORDER BY time ASC LIMIT 3");
   return response.render('pages/index', {
     times,
   });

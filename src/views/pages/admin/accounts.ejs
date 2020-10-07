@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+  <!--the main header-->
+  <%- include ('../../partials/head-admin') %>
+  <br>
+  <br>
+
+  <body>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>is teacher</th>
+        <th>password</th>
+      </tr>
+
+      <% for(let i = 0; i < accounts.length; i++) { %>
+      <tr>
+        <td><%= accounts[i].email %></td>
+        <td><%= accounts[i].name %></td>
+        <td><%= accounts[i].is_teacher %></td>
+        <td><%= accounts[i].password %></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+
+  <footer>
+
+  </footer>
+  <!--the footer partials -->
+  <%- include ('../../partials/footer') %>
+</body>
+
+</html>

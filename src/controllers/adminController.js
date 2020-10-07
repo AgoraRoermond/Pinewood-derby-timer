@@ -8,6 +8,13 @@ async function getTimes(request, response) {
   });
 }
 
+async function getAccounts(request, response) {
+  var accounts = await sql.query("SELECT * FROM accounts");
+  return response.render('pages/admin/accounts', {
+    accounts,
+  });
+}
+
 async function getAssignTimes(request, response) {
   var accountList = await sql.query("SELECT email, name FROM accounts");
   var unassignedTimes = serial.getLatestTimes();
@@ -36,6 +43,7 @@ async function postAssignTimes(request, response) {
 
 module.exports = {
   getTimes,
+  getAccounts,
   getAssignTimes,
   postAssignTimes,
 }
