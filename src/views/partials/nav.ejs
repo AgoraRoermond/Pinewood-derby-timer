@@ -1,7 +1,38 @@
 <!-- views/partials/nav.ejs -->
-
+<link rel="stylesheet" href="css/nav.css">
+<header>
 <nav>
   <p>
-    This is the navigation for every page
+  <ul>
+    <li><a href="/admin/assignTimes">Tijden toewijzen</a></li>
+    <li><a href="/admin/accounts">Acounts</a></li>
+    <li><a href="/admin/times">Tijden</a></li>
+  </ul>
   </p>
 </nav>
+</header>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0B8787;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #3f3f3f;
+}
+</style>

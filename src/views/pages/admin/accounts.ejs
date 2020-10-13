@@ -7,23 +7,24 @@
 <body>
   <!--the main header-->
   <%- include ('../../partials/head-admin') %>
-
+  <br>
+  <br>
 
   <body>
     <table>
       <tr>
         <th>Id</th>
         <th>Student mail</th>
-        <th>Time</th>
-        <th>Timestamp</th>
+        <th>is teacher</th>
+        <th>password</th>
       </tr>
 
-      <% for(let i = 0; i < times.length; i++) { %>
+      <% for(let i = 0; i < accounts.length; i++) { %>
       <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
+        <td><%= accounts[i].email %></td>
+        <td><%= accounts[i].name %></td>
+        <td><%= accounts[i].is_teacher %></td>
+        <td><%= accounts[i].password %></td>
       </tr>
       <% } %>
     </table>

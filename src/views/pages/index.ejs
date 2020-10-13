@@ -1,29 +1,67 @@
-<!-- views/pages/index.ejs -->
+<html>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <%- include ('../partials/head') %>
+  <link rel="stylesheet" href="/css/index.css">
 </head>
+
 <body>
-
-<header>
-    <h1>
-      Home page
-    </h1>
-    <%- include ('../partials/nav') %>
-</header>
-
-<main>
-    <div>
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
+  <header>
+    <div class="headertext">
+      <h1> Derby timing Niekee login</h1>
     </div>
-</main>
+  </header>
+  <br>
+  <br>
+  <main>
+    <div class="form">
+      <!-- Login form-->
+      <form method="post">
+        <!--gebruikersnaam-->
+        <label class="email" for="email">Email</label>
+        <br /><br />
+        <input type="text" size="40" id="loginEmail" name="loginEmail" required>
+        <br /><br />
+        <!--wachtwoord-->
+        <label class="wachtwoord" for="loginPassword">Password</label>
+        <br /><br />
+        <input type="text" size="40" id="loginPassword" name="loginPassword" required>
+        <br /><br />
+        <!--login knop-->
+        <input class="loginknop" type="submit" value="Log in">
+      </form>
+      <!--de pop up-->
+      <div class="popup" onclick="myFunction()">popup test
+        <span class="popuptext" id="myPopup">U heeft het verkeerde gebruikernaams/wachtwoord ingevuld</span>
+      </div>
+    </div>
+  </main>
+  <div class="tabel">
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>Time</th>
+        <th>Timestamp</th>
+      </tr>
 
-<footer>
-    <%- include ('../partials/footer') %>
-</footer>
+      <% for(let i = 0; i < times.length; i++) { %>
+      <tr>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
+        <td><%= times[i].time %></td>
+        <td><%= times[i].timestamp %></td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
 
+  <!--script voor de popup veranderen-->
+  <script>
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  </script>
 </body>
+
 </html>

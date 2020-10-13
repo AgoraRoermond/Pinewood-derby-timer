@@ -6,7 +6,8 @@
 
 <body>
   <!--the main header-->
-  <%- include ('../../partials/head-admin') %>
+  <%- include ('../../partials/head-student') %>
+
 
 
   <body>
@@ -18,12 +19,12 @@
         <th>Timestamp</th>
       </tr>
 
-      <% for(let i = 0; i < times.length; i++) { %>
+      <% for(let i = 0; i < getTimes.length; i++) { %>
       <tr>
-        <td><%= times[i].id %></td>
-        <td><%= times[i].student_mail %></td>
-        <td><%= times[i].time %></td>
-        <td><%= times[i].timestamp %></td>
+        <td><%= getTimes[i].id %></td>
+        <td><%= getTimes[i].student_mail %></td>
+        <td><%= getTimes[i].time %></td>
+        <td><%= getTimes[i].timestamp %></td>
       </tr>
       <% } %>
     </table>

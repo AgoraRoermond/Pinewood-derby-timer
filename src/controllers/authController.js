@@ -2,7 +2,10 @@ const sql = require('../db.js');
 
 
 async function getLogin(request, response) {
-  return response.render('pages/login/login')
+  var times = await sql.query("SELECT * FROM times ORDER BY time ASC LIMIT 3");
+  return response.render('pages/login/login', {
+    times,
+  });
 }
 
 async function postLogin(request, response) {
@@ -19,7 +22,7 @@ async function postLogin(request, response) {
     request.session.isTeacher = results[0].is_teacher;
 
     if (results[0].is_teacher) {
-      return response.redirect('/admin/admin');
+      return response.redirect('/admin/times');
     } else {
       return response.redirect('/student/student');
     }
@@ -28,6 +31,9 @@ async function postLogin(request, response) {
     return response.send("An internal error occured");
   }
 }
+
+
+
 
 
 module.exports = {

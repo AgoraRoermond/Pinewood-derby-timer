@@ -116,3 +116,6 @@ dist
 
 # Vistual studio crap
 .vs
+
+# Apple crap
+.DS_Store

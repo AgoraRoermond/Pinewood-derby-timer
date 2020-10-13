@@ -1,14 +1,24 @@
 const express = require('express')
 const adminRouter = require('./routers/adminRouter');
 const authRouter = require('./routers/authRouter');
-const router = express.Router()
+const studentRouter = require('./routers/studentRouter');
+const router = express.Router();
 
-router.use('/admin', adminRouter);
+function requireTeacher(req, res, next) {
+  if(req.session.isTeacher) {
+    next();
+  } else {
+    res.send("premission denied");
+  }
+}
+
+router.use('/admin', requireTeacher, adminRouter);
 
 router.use('/auth', authRouter);
+router.use('/student', studentRouter);
 
 router.get('/', (request, response) => {
-  response.render("pages/index");
+  response.redirect("/auth/login");
 })
 
 module.exports = router;

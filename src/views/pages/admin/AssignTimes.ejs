@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include ('../../partials/head') %>
 </head>
 <body>
 
@@ -11,10 +10,10 @@
     <h1>
       my times
     </h1>
-    <%- include ('../../partials/nav') %>
 </header>
 
 <%= typeof error != 'undefined' && error || null %>
+<%= accountList[0].email %>
 
 <form method="post">
 <label for="studentMail0">Email:</label>
@@ -33,7 +32,6 @@
 </form>
 
 <footer>
-    <%- include ('../../partials/footer') %>
 </footer>
 
 </body>
