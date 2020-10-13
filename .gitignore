@@ -119,3 +119,5 @@ dist
 
 # Apple crap
 .DS_Store
+
+.idea/
