@@ -1,5 +1,5 @@
 {
-  "exec": "npm run dev",
+  "exec": "npm-run-all dev",
   "watch": ["src/*"],
   "ignore": [],
   "ext": "js, html, css, json, ejs"
