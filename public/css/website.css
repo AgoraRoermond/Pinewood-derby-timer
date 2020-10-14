@@ -1,124 +1,124 @@
 div.header {
-    text-align: center;
-    background: #0B8787;
-    color: black;
-    font-size: 35px;
+  text-align: center;
+  background: #0b8787;
+  color: black;
+  font-size: 35px;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0B8787;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0b8787;
 }
 
 header li {
-    float: left;
+  float: left;
 }
 
 header li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 30px 30px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 30px 30px;
+  text-decoration: none;
 }
 
 header li a:hover {
-    background-color: black;
+  background-color: black;
 }
 
 header li a.active {
-    color: #999790;
+  color: #999790;
 }
 
 div.Title {
-    text-align: center;
-    background: #0B8787;
-    height: fit-content;
-    color: black;
-    font-size: 40px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  text-align: center;
+  background: #0b8787;
+  height: fit-content;
+  color: black;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 div.Tijdknop {
-    text-align: left;
-    background: #0B8787;
-    height: fit-content;
-    color: black;
-    font-size: 40px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  text-align: left;
+  background: #0b8787;
+  height: fit-content;
+  color: black;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 p.Tijdenlijst {
-    text-align: right;
-    font-size: large;
+  text-align: right;
+  font-size: large;
 }
 
 table,
 th,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 200px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 200px;
 }
 
 aside {
-    text-align: left;
-    float: right;
-    width: fit-content;
-    height: fit-content;
-    font-size: xx-large;
+  text-align: left;
+  float: right;
+  width: fit-content;
+  height: fit-content;
+  font-size: xx-large;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 p.Grafiek {
-    width: 200px;
+  width: 200px;
 }
 
 body {
-    margin: 0px;
+  margin: 0;
 }
 
 header {
-    text-align: center;
-    background: #0B8787;
-    color: black;
-    font-size: 35px;
+  text-align: center;
+  background: #0b8787;
+  color: black;
+  font-size: 35px;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0B8787;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0b8787;
 }
 
 header li {
-    float: left;
+  float: left;
 }
 
 header li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 30px 30px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 30px 30px;
+  text-decoration: none;
 }
 
 header li a:hover {
-    background-color: black;
+  background-color: black;
 }
 
 header li a.active {
-    color: #999790;
+  color: #999790;
 }

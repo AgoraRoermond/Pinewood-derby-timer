@@ -1,10 +1,10 @@
-const SerialPort = require('serialport');
-const Readline = require('@serialport/parser-readline');
+const SerialPort = require("serialport");
+const Readline = require("@serialport/parser-readline");
 
 const path = "COM5";
 
 const port = new SerialPort(path, {
-  baudRate: 115200
+  baudRate: 115200,
 });
 const parser = port.pipe(new Readline());
 var latestTimes = [1.02, 2.55, 9.87];

@@ -1,5 +1,5 @@
 body {
-  margin: 0
+  margin: 0;
 }
 
 html {
@@ -8,7 +8,7 @@ html {
 
 .headertext {
   grid-area: header;
-  background: #0B8787;
+  background: #0b8787;
   text-align: center;
   color: black;
   font-size: 35px;
@@ -27,7 +27,7 @@ html {
 .loginknop {
   font-size: 35px;
   color: black;
-  background: #0B8787;
+  background: #0b8787;
 }
 
 /*tijden tabel*/
@@ -38,14 +38,16 @@ html {
   left: 8px;
   width: 50%;
   height: 100%;
-  padding: 10px solid #0B8787;
+  padding: 10px;
 }
 
 table {
   border-collapse: collapse;
 }
 
-table, td, th {
+table,
+td,
+th {
   border: 2px solid black;
   width: inherit;
 }
@@ -56,7 +58,7 @@ table, td, th {
   text-align: center;
   right: 8px;
   height: auto;
-  border: 5px solid #0B8787;
+  border: 5px solid #0b8787;
 }
 
 /* Popup container */
@@ -74,7 +76,7 @@ table, td, th {
 .popup .popuptext {
   visibility: hidden;
   width: fit-content;
-  background-color: #0B8787;
+  background-color: #0b8787;
   color: #efefef;
   text-align: center;
   border-radius: 10px;
@@ -95,7 +97,7 @@ table, td, th {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #0B8787 transparent transparent transparent;
+  border-color: #0b8787 transparent transparent transparent;
 }
 
 .popup .show {
