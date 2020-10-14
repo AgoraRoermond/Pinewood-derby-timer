@@ -9,10 +9,10 @@ const port = new SerialPort(path, {
 const parser = port.pipe(new Readline());
 var latestTimes = [1.02, 2.55, 9.87];
 
-port.on('error', err => console.log("Couldn't open serial port"));
-parser.on('data', line => {
+port.on("error", () => console.log("Couldn't open serial port"));
+parser.on("data", (line) => {
   var timeStrings = line.split("&");
-  latestTimes = timeStrings.map(x => parseFloat(x));
+  latestTimes = timeStrings.map((x) => parseFloat(x));
 });
 
 function getLatestTimes() {
@@ -26,4 +26,4 @@ function clearLatestTime(index) {
 module.exports = {
   getLatestTimes,
   clearLatestTime,
-}
+};
