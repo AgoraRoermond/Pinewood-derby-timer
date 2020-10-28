@@ -17,6 +17,7 @@ CREATE TABLE times (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `student_mail` VARCHAR(45) NOT NULL,
   `time` DECIMAL(5,2) DEFAULT NULL,
+  `raceId` VARCHAR(5) NOT NULL,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `student_mail` (`student_mail`),

@@ -37,9 +37,16 @@ function getResult(request, response) {
   return response.send("Here are the results");
 }
 
-function getResultApi(request, response) {
-  // TODO: implement
-  return response.json({ success: true });
+async function getResultApi(request, response) {
+  const results = await sql.query(
+    "SELECT `student_mail`, `time` FROM `times` WHERE raceId=? ORDER BY time ASC",
+    [serial.getRaceId()]
+  );
+  const position = results
+    .map((result) => result.student_mail)
+    .indexOf(request.session.loginEmail);
+  if (position < 0) return response.json({ gameFinished: false });
+  return response.json({ gameFinished: true, position });
 }
 
 module.exports = {

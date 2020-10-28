@@ -17,3 +17,5 @@ services:
       - 8000:80
     depends_on:
       - mariadb
+    environment:
+      PMA_HOST: mariadb

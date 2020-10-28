@@ -3,50 +3,51 @@
 <html lang="en">
 
 <head>
-  <title>Assign Times</title>
+    <%- include ("../../partials/admin/head.ejs") %>
+    <title>Assign Times</title>
 </head>
 
 <body>
-  <!--the main header-->
-  <%- include ("../../partials/admin/head.ejs") %>
+<%- include ("../../partials/admin/nav.ejs") %>
 
-  <br>
-  <br>
-  <!-- Het formulier voor tijden aan studenten te koppelen-->
-  <main>
+<br>
+<br>
+<!-- Het formulier voor tijden aan studenten te koppelen-->
+<main>
+    <div class="error"><%= typeof error != 'undefined' && error || null %></div>
     <form method="post">
-      <!--formulier 1-->
-      <label for="studentMail0">Email:</label>
-      <select id="studentMail0" name="studentMail[]">
-        <% for(let i = 0; i < accountList.length; i++) { %>
-        <option value="<%= accountList[i].email %>"> <%= accountList[i].name %> </option>
-        <% } %>
-      </select>
-      <%= unassignedTimes[0] %>
-      <br>
-      <!--formulier 2-->
-      <label for="studentMail1">Email:</label>
-      <select id="studentMail1" name="studentMail[]">
-        <% for(let i = 0; i < accountList.length; i++) { %>
-        <option value="<%= accountList[i].email%>"> <%= accountList[i].name %>. </option>
-        <% } %>
-      </select>
-      <%= unassignedTimes[1] %>
-      <br>
-      <!--formulier 3-->
-      <label for="studentMail2">Email:</label>
-      <select id="studentMail2" name="studentMail[]">
-        <% for(let i = 0; i < accountList.length; i++) { %>
-        <option value="<%= accountList[i].email%>"> <%= accountList[i].name %>. </option>
-        <% } %>
-      </select>
-      <%= unassignedTimes[2] %>
-      <br>
-      <input type="submit" value="Voer in">
+        <!--formulier 1-->
+        <label for="studentMail0">Email:</label>
+        <select id="studentMail0" name="studentMail[]">
+            <% for(let i = 0; i < accountList.length; i++) { %>
+                <option value="<%= accountList[i].email %>"> <%= accountList[i].name %></option>
+            <% } %>
+        </select>
+        <%= unassignedTimes[0] %>
+        <br>
+        <!--formulier 2-->
+        <label for="studentMail1">Email:</label>
+        <select id="studentMail1" name="studentMail[]">
+            <% for(let i = 0; i < accountList.length; i++) { %>
+                <option value="<%= accountList[i].email %>"> <%= accountList[i].name %></option>
+            <% } %>
+        </select>
+        <%= unassignedTimes[1] %>
+        <br>
+        <!--formulier 3-->
+        <label for="studentMail2">Email:</label>
+        <select id="studentMail2" name="studentMail[]">
+            <% for(let i = 0; i < accountList.length; i++) { %>
+                <option value="<%= accountList[i].email %>"> <%= accountList[i].name %></option>
+            <% } %>
+        </select>
+        <%= unassignedTimes[2] %>
+        <br>
+        <input type="submit" value="Voer in">
     </form>
-  </main>
-  <!--the footer partials -->
-  <%- include ("../../partials/admin/footer.ejs") %>
+</main>
+
+<%- include ("../../partials/admin/footer.ejs") %>
 </body>
 
 </html>

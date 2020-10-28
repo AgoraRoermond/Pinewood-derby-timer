@@ -32,18 +32,19 @@ async function postAssignTimes(request, response) {
       if (!studentMail) return Promise.resolve();
       if (assignedTimes[index] === null) return Promise.resolve();
       return sql
-        .query("INSERT INTO `times` (`student_mail`,`time`) VALUES (?,?);", [
-          studentMail,
-          assignedTimes[index],
-        ])
+        .query(
+          "INSERT INTO `times` (`student_mail`,`time`,`raceId`) VALUES (?,?,?);",
+          [studentMail, assignedTimes[index], serial.getRaceId()]
+        )
         .then(() => serial.clearLatestTime(index));
     })
   )
     .then(() => response.redirect("/admin/assignTimes"))
-    .catch(() =>
+    .catch(async () =>
       response.render("pages/admin/asign-times", {
         error: "Unknown email",
         unassignedTimes: assignedTimes,
+        accountList: await sql.query("SELECT email, name FROM accounts"),
       })
     );
 }
