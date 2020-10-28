@@ -28,7 +28,7 @@ async function postLogin(request, response) {
     if (results[0].is_teacher) {
       return response.redirect("/admin/times");
     } else {
-      return response.redirect("/student/student");
+      return response.redirect("/student/dashboard");
     }
   } catch (e) {
     console.error(e);

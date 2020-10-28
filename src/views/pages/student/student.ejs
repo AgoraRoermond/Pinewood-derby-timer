@@ -2,15 +2,17 @@
 <html lang="en">
 
 <head>
+    <%- include ('../../partials/student/head.ejs') %>
+    <title>Student dashboard</title>
 </head>
 
 <body>
   <!--the main header-->
-  <%- include ('../../partials/head-student') %>
+  <%- include ('../../partials/student/nav.ejs') %>
 
 
 
-  <body>
+  <main>
     <table>
       <tr>
         <th>Id</th>
@@ -19,22 +21,22 @@
         <th>Timestamp</th>
       </tr>
 
-      <% for(let i = 0; i < getTimes.length; i++) { %>
+      <% for(let i = 0; i < times.length; i++) { %>
       <tr>
-        <td><%= getTimes[i].id %></td>
-        <td><%= getTimes[i].student_mail %></td>
-        <td><%= getTimes[i].time %></td>
-        <td><%= getTimes[i].timestamp %></td>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
+        <td><%= times[i].time %></td>
+        <td><%= times[i].timestamp %></td>
       </tr>
       <% } %>
     </table>
-  </body>
+  </main>
 
   <footer>
 
   </footer>
   <!--the footer partials -->
-  <%- include ('../../partials/footer') %>
+  <%- include ('../../partials/student/footer') %>
 </body>
 
 </html>

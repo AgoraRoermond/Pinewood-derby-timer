@@ -4,6 +4,7 @@ const path = require("path");
 const routes = require("./router");
 require("./serial.js");
 const session = require("express-session");
+var FileStore = require("session-file-store")(session);
 const app = express();
 var port = process.env.NODE_ENV === "production" ? 80 : 8080;
 
@@ -22,6 +23,7 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: true,
+    store: new FileStore({}),
   })
 );
 app.use("/", routes);

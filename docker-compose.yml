@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: AgoraRoermond
+      MYSQL_DATABASE: derby
+    ports:
+      - 3306:3306
+    volumes:
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8000:80
+    depends_on:
+      - mariadb

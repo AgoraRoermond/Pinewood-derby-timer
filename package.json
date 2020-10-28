@@ -1,5 +1,5 @@
 {
-  "name": "Pinewood-derby-timer",
+  "name": "pinewood-derby-timer",
   "version": "0.0.0",
   "description": "The server for the pinewood derby project",
   "private": true,
@@ -27,7 +27,8 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mysql": "^2.18.1",
-    "serialport": "^9.0.0"
+    "serialport": "^9.0.0",
+    "session-file-store": "^1.5.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

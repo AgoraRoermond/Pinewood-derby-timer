@@ -8,7 +8,7 @@
 
 <body>
   <!--the main header-->
-  <%- include ('../../partials/head-admin') %>
+  <%- include ("../../partials/admin/head.ejs") %>
 
   <br>
   <br>
@@ -16,7 +16,7 @@
   <main>
     <form method="post">
       <!--formulier 1-->
-      <label for="studenMail0">Email:</label>
+      <label for="studentMail0">Email:</label>
       <select id="studentMail0" name="studentMail[]">
         <% for(let i = 0; i < accountList.length; i++) { %>
         <option value="<%= accountList[i].email %>"> <%= accountList[i].name %> </option>
@@ -25,7 +25,7 @@
       <%= unassignedTimes[0] %>
       <br>
       <!--formulier 2-->
-      <label for="studenMail1">Email:</label>
+      <label for="studentMail1">Email:</label>
       <select id="studentMail1" name="studentMail[]">
         <% for(let i = 0; i < accountList.length; i++) { %>
         <option value="<%= accountList[i].email%>"> <%= accountList[i].name %>. </option>
@@ -34,7 +34,7 @@
       <%= unassignedTimes[1] %>
       <br>
       <!--formulier 3-->
-      <label for="studenMail2">Email:</label>
+      <label for="studentMail2">Email:</label>
       <select id="studentMail2" name="studentMail[]">
         <% for(let i = 0; i < accountList.length; i++) { %>
         <option value="<%= accountList[i].email%>"> <%= accountList[i].name %>. </option>
@@ -46,7 +46,7 @@
     </form>
   </main>
   <!--the footer partials -->
-  <%- include ('../../partials/footer') %>
+  <%- include ("../../partials/admin/footer.ejs") %>
 </body>
 
 </html>
