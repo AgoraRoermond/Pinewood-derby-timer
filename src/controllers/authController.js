@@ -1,8 +1,9 @@
 const sql = require("../db.js");
+const bcrypt = require("bcrypt");
 
 async function getLogin(request, response) {
   var times = await sql.query("SELECT * FROM times ORDER BY time ASC LIMIT 3");
-  return response.render("pages/login/login", {
+  return response.render("pages/auth/login", {
     times,
   });
 }
@@ -11,16 +12,23 @@ async function postLogin(request, response) {
   const loginEmail = request.body.loginEmail;
   const loginPassword = request.body.loginPassword;
 
-  if (!(loginEmail && loginPassword))
+  if (!loginEmail || !loginPassword)
     return response.send("Please enter Username and Password!");
 
   try {
     const results = await sql.query(
-      "SELECT email, is_teacher FROM accounts WHERE email = ? AND password = ?",
-      [loginEmail, loginPassword]
+      "SELECT email, is_teacher, password FROM accounts WHERE email = ?",
+      [loginEmail]
     );
-    if (results.length === 0)
-      response.send("Incorrect Username and/or Password!");
+    if (
+      results.length === 0 ||
+      !(await bcrypt.compare(loginPassword, results[0].password))
+    )
+      return response.render("pages/auth/login", {
+        error: "Incorrect Username and/or Password!",
+        email: loginEmail,
+        times: await sql.query("SELECT * FROM times ORDER BY time ASC LIMIT 3"),
+      });
 
     request.session.loginEmail = loginEmail;
     request.session.isTeacher = results[0].is_teacher;

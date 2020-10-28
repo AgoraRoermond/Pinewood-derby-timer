@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body>
+<body onLoad="myFunction()">
   <header>
     <div class="headertext">
       <h1> Derby timing Niekee login</h1>
@@ -17,21 +17,21 @@
       <!-- Login form-->
       <form method="post">
         <!--gebruikersnaam-->
-        <label class="email" for="email">Email</label>
+        <label class="email" for="loginEmail">Email</label>
         <br /><br />
-        <input type="text" size="40" id="loginEmail" name="loginEmail" required>
+        <input type="text" size="40" id="loginEmail" name="loginEmail" required value="<%= typeof email != 'undefined' && email || null %>">
         <br /><br />
         <!--wachtwoord-->
         <label class="wachtwoord" for="loginPassword">Password</label>
         <br /><br />
-        <input type="password" size="40" id="loginPassword" name="loginPassword" required>
+        <input type="password" size="40" id="loginPassword" name="loginPassword" required <%= typeof email != 'undefined' && "autofocus" || null %>>
         <br /><br />
         <!--login knop-->
         <input class="loginknop" type="submit" value="Log in">
       </form>
       <!--de pop up-->
-      <div class="popup" onclick="myFunction()">popup test
-        <span class="popuptext" id="myPopup">U heeft het verkeerde gebruikernaams/wachtwoord ingevuld</span>
+      <div class="popup">
+        <span class="popuptext" id="myPopup"><%= typeof error != 'undefined' && error || null %></span>
       </div>
     </div>
   </main>
@@ -58,8 +58,10 @@
   <!--script voor de popup veranderen-->
   <script>
     function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
+      if(<% if(typeof error != 'undefined') {%>true<%} else {%>false<%}%>) {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+      }
     }
   </script>
 </body>
