@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include ("../../partials/student/head.ejs") %>
+    <%- include ("../../partials/student/head") %>
     <title>Join race</title>
 </head>
 
 <body>
-<%- include ("../../partials/student/nav.ejs") %>
+<%- include ("../../partials/student/nav") %>
 
 <main>
     <div class="error"><%= typeof error != 'undefined' && error || null %></div>
@@ -21,11 +21,11 @@
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-        <br/><br />
+        <br/><br/>
         <input type="submit"/>
     </form>
 </main>
 
-<%- include ("../../partials/student/footer.ejs") %>
+<%- include ("../../partials/student/footer") %>
 </body>
 </html>

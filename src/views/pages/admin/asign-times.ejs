@@ -3,15 +3,13 @@
 <html lang="en">
 
 <head>
-    <%- include ("../../partials/admin/head.ejs") %>
+    <%- include ("../../partials/admin/head") %>
     <title>Assign Times</title>
 </head>
 
 <body>
-<%- include ("../../partials/admin/nav.ejs") %>
+<%- include ("../../partials/admin/nav") %>
 
-<br>
-<br>
 <!-- Het formulier voor tijden aan studenten te koppelen-->
 <main>
     <div class="error"><%= typeof error != 'undefined' && error || null %></div>
@@ -47,7 +45,6 @@
     </form>
 </main>
 
-<%- include ("../../partials/admin/footer.ejs") %>
+<%- include ("../../partials/admin/footer") %>
 </body>
-
 </html>
