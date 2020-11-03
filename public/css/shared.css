@@ -2,10 +2,35 @@ body {
   margin: 0;
 }
 
+html {
+  background-color: #efefef;
+}
+
 main {
-  margin: 8px;
+  margin: 10px;
 }
 
 .error {
   color: red;
+}
+
+p.footer {
+  position: absolute;
+  bottom: 5px;
+}
+
+header {
+  margin: 0px;
+  margin-top: 0px;
+  text-align: center;
+  background: #0b8787;
+  color: black;
+  font-size: 35px;
+}
+
+.table, th, td {
+  border: 2px solid black;
+}
+.table {
+  border-collapse: collapse;
 }
