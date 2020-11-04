@@ -51,7 +51,7 @@ async function getResultApi(request, response) {
 
 
 async function getTimes(request, response) {
-  var timeList = await sql.query("SELECT time as tijd, DATA(timestamp) FROM times");
+  var timeList = await sql.query("SELECT time as tijd, DATE(timestamp) FROM times");
 
   return response.render("pages/student/chart", {
       timeList,

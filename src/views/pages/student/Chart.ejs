@@ -22,7 +22,7 @@
 
                 { %>
 
-                  [<%= dataList[i].attempt %>, <%= timeList[i].tijd %>, ],
+                  [<%= timeList[i].timestamp %>, <%= timeList[i].tijd %>, ],
 
                   <% } %>
               ]);
@@ -46,10 +46,10 @@
             <th>Timestamp</th>
         </tr>
 
-      <% for(let i = 0; i < dataList.length; i++) { %>
+      <% for(let i = 0; i < timeList.length; i++) { %>
             <tr>
-
-                <td><%= dataList[i].attempt %></td>
+                <td><%= timeList[i].tijd %></td>
+                <td><%= timeList[i].timestamp %></td>
             </tr>
         <% } %>
     </table>
