@@ -49,10 +49,27 @@ async function getResultApi(request, response) {
   return response.json({ gameFinished: true, position });
 }
 
+
+async function getTimes(request, response) {
+  var timeList = await sql.query("SELECT time as tijd, DATA(timestamp) FROM times");
+
+  return response.render("pages/student/chart", {
+      timeList,
+
+  });
+}
+
+
+
+
+
+
 module.exports = {
   getDashboard,
   getJoinRace,
   postJoinRace,
   getResult,
   getResultApi,
+  getTimes,
+
 };

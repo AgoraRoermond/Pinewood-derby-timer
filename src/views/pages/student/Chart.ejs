@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ("../../partials/student/head") %>
+    <title>chart</title>
+      </head>
+  <body>
+    <main>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['year','tijd',],
+            <% for(let i = 0; i < timeList.length; i++)
+
+
+
+                { %>
+
+                  [<%= dataList[i].attempt %>, <%= timeList[i].tijd %>, ],
+
+                  <% } %>
+              ]);
+
+
+
+        var options = {
+          hAxis: {title: 'TimeStamp',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <table>
+        <tr>
+
+            <th>Time</th>
+            <th>Timestamp</th>
+        </tr>
+
+      <% for(let i = 0; i < dataList.length; i++) { %>
+            <tr>
+
+                <td><%= dataList[i].attempt %></td>
+            </tr>
+        <% } %>
+    </table>
+  </main>
+  </body>
+
+<%- include ("../../partials/student/footer") %>
+</body>
+</html>

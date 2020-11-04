@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ("../../partials/student/head") %>
+    <title>Student dashboard</title>
+</head>
+
+<body>
+<%- include ("../../partials/student/nav") %>
+
+<main>
+    <table>
+        <tr>
+
+            <th>Timestamp</th>
+        </tr>
+
+        <% for(let i = 0; i < dataList.length; i++) { %>
+            <tr>
+                <td><%= dataList[i].tijd %></td>
+
+            </tr>
+        <% } %>
+    </table>
+</main>
+
+<%- include ('../../partials/student/footer') %>
+</body>
+</html>

@@ -12,6 +12,7 @@ INSERT INTO `accounts` (`email`,`name`, `is_teacher`,`password`) VALUES
   ('somn10227@soml.nl','Martijn le Rutte', 0, '$2b$10$BoezUlcsL5yjcWsGH4/uqeya7LupLKJvXsl7ZvF0kijFu5kczY32G');  -- Password: Martijn
 
 
+
 DROP TABLE IF EXISTS `times`;
 CREATE TABLE times (
   `id` int(11) NOT NULL AUTO_INCREMENT,
