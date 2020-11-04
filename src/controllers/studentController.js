@@ -51,8 +51,8 @@ async function getResultApi(request, response) {
 
 
 async function getTimes(request, response) {
-  var timeList = await sql.query("SELECT time as tijd, DATE(timestamp) FROM times");
-
+    var loginEmail = request.session.loginEmail
+  var timeList = await sql.query("SELECT time as tijd, DATE(timestamp) FROM times WHERE student_mail = ?", [loginEmail]);
   return response.render("pages/student/chart", {
       timeList,
 
