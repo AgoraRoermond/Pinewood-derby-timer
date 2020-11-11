@@ -7,7 +7,7 @@ async function getDashboard(request, response) {
     loginEmail,
   ]);
   response.render("pages/student/student", {
-    times
+    times,
   });
 }
 
@@ -17,10 +17,7 @@ function getJoinRace(request, response) {
 
 async function postJoinRace(request, response) {
   const loginEmail = request.session.loginEmail;
-  const {
-    raceId,
-    trackId: trackIdString
-  } = request.body;
+  const { raceId, trackId: trackIdString } = request.body;
   const trackId = parseInt(trackIdString);
   if (raceId !== serial.getRaceId())
     return response.render("pages/student/joinRace", {
@@ -50,29 +47,26 @@ async function getResultApi(request, response) {
   const position = results
     .map((result) => result.student_mail)
     .indexOf(request.session.loginEmail);
-  if (position < 0) return response.json({
-    gameFinished: false
-  });
+  if (position < 0)
+    return response.json({
+      gameFinished: false,
+    });
   return response.json({
     gameFinished: true,
-    position
+    position,
   });
 }
-
 
 async function getTimes(request, response) {
-  var loginEmail = request.session.loginEmail
-  var timeList = await sql.query("SELECT time as tijd, DATE(timestamp) FROM times WHERE student_mail = ?", [loginEmail]);
+  var loginEmail = request.session.loginEmail;
+  var timeList = await sql.query(
+    "SELECT time as tijd, DATE(timestamp) FROM times WHERE student_mail = ?",
+    [loginEmail]
+  );
   return response.render("pages/student/chart", {
     timeList,
-
   });
 }
-
-
-
-
-
 
 module.exports = {
   getDashboard,
@@ -81,5 +75,4 @@ module.exports = {
   getResult,
   getResultApi,
   getTimes,
-
 };

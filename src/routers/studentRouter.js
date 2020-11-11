@@ -12,6 +12,4 @@ studentRouter.get("/result", studentController.getResult);
 
 studentRouter.get("/chart", studentController.getTimes);
 
-
-
 module.exports = studentRouter;
