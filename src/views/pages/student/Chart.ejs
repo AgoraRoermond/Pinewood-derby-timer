@@ -2,37 +2,52 @@
 <html lang="en">
 
 <head>
-    <%- include ("../../partials/student/head") %>
-    <title>chart</title>
-      </head>
-  <body>
-    <%- include ("../../partials/student/nav") %>
-    <main>
+  <%- include ("../../partials/student/head") %>
+  <title>chart</title>
+</head>
+
+<body>
+  <%- include ("../../partials/student/nav") %>
+  <main>
     <div id="chart_div" style="width: 100%; height: 500px;"></div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {
+        'packages': ['corechart']
+      });
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-    ['year','tijd',],
-            <% for(let i = 0; i < timeList.length; i++)
+          ['year', 'tijd', ], <
+          %
+          for (let i = 0; i < timeList.length; i++)
 
 
 
-                { %>
+          {
+            %
+            >
 
-                  [<%= timeList[i].timestamp %>, <%= timeList[i].tijd %>, ],
+            [ < %= timeList[i].timestamp % > , < %= timeList[i].tijd % > , ],
 
-                  <% } %>
-              ]);
+            <
+            %
+          } % >
+        ]);
 
 
 
         var options = {
-          hAxis: {title: 'TimeStamp',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+          hAxis: {
+            title: 'TimeStamp',
+            titleTextStyle: {
+              color: '#333'
+            }
+          },
+          vAxis: {
+            minValue: 0
+          }
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
@@ -41,22 +56,23 @@
     </script>
 
     <table>
-        <tr>
+      <tr>
 
-            <th>Time</th>
-            <th>Timestamp</th>
-        </tr>
+        <th>Time</th>
+        <th>Timestamp</th>
+      </tr>
 
       <% for(let i = 0; i < timeList.length; i++) { %>
-            <tr>
-                <td><%= timeList[i].tijd %></td>
-                <td><%= timeList[i].timestamp %></td>
-            </tr>
-        <% } %>
+      <tr>
+        <td><%= timeList[i].tijd %></td>
+        <td><%= timeList[i].timestamp %></td>
+      </tr>
+      <% } %>
     </table>
   </main>
-  </body>
+</body>
 
 <%- include ("../../partials/student/footer") %>
 </body>
+
 </html>

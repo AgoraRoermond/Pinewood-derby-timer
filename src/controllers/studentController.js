@@ -6,7 +6,9 @@ async function getDashboard(request, response) {
   const times = await sql.query("SELECT * FROM times WHERE student_mail = ?", [
     loginEmail,
   ]);
-  response.render("pages/student/student", { times });
+  response.render("pages/student/student", {
+    times
+  });
 }
 
 function getJoinRace(request, response) {
@@ -15,7 +17,10 @@ function getJoinRace(request, response) {
 
 async function postJoinRace(request, response) {
   const loginEmail = request.session.loginEmail;
-  const { raceId, trackId: trackIdString } = request.body;
+  const {
+    raceId,
+    trackId: trackIdString
+  } = request.body;
   const trackId = parseInt(trackIdString);
   if (raceId !== serial.getRaceId())
     return response.render("pages/student/joinRace", {
@@ -45,16 +50,21 @@ async function getResultApi(request, response) {
   const position = results
     .map((result) => result.student_mail)
     .indexOf(request.session.loginEmail);
-  if (position < 0) return response.json({ gameFinished: false });
-  return response.json({ gameFinished: true, position });
+  if (position < 0) return response.json({
+    gameFinished: false
+  });
+  return response.json({
+    gameFinished: true,
+    position
+  });
 }
 
 
 async function getTimes(request, response) {
-    var loginEmail = request.session.loginEmail
+  var loginEmail = request.session.loginEmail
   var timeList = await sql.query("SELECT time as tijd, DATE(timestamp) FROM times WHERE student_mail = ?", [loginEmail]);
   return response.render("pages/student/chart", {
-      timeList,
+    timeList,
 
   });
 }
