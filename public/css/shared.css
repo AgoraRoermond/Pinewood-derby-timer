@@ -19,17 +19,10 @@ p.footer {
   bottom: 5px;
 }
 
-header {
-
-  text-align: center;
-  background: #0b8787;
-  color: black;
-  font-size: 35px;
-}
-
 .table, th, td {
   border: 2px solid black;
 }
+
 .table {
   border-collapse: collapse;
 }

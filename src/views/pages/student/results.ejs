@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ("../../partials/student/head") %>
+  <link rel="stylesheet" href="/css/student/results.css">
+  <title>Join race</title>
+</head>
+
+<body>
+  <%- include ("../../partials/student/nav") %>
+  <script>
+
+  </script>
+  <main>
+    <table>
+      <tr>
+        <th>Plek</th>
+        <th>Wie</th>
+        <th>Tijd</th>
+      </tr>
+
+
+      <tr>
+        <td>1ste</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2de</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3de</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+
+    </table>
+    <script>
+      const response = await (await fetch('/api/student/results')).json();
+      console.log(response);
+    </script>
+  </main>
+  <%- include ("../../partials/student/footer") %>
+</body>
+
+</html>

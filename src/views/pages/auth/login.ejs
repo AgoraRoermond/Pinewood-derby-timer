@@ -31,7 +31,7 @@
       </form>
       <!--de pop up-->
       <div class="popup">
-        <span class="popuptext" id="myPopup"><%= typeof error != 'undefined' && error || null %></span>
+        <span class="popuptext" id="myPopup" onclick="myFunction()"><%= typeof error != 'undefined' && error || null %></span>
       </div>
     </div>
   </main>
@@ -58,7 +58,12 @@
   <!--script voor de popup veranderen-->
   <script>
     function myFunction() {
-      if(<% if(typeof error != 'undefined') {%>true<%} else {%>false<%}%>) {
+      if ( < %
+        if (typeof error != 'undefined') {
+          % > true < %
+        } else {
+          % > false < %
+        } % > ) {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
       }
