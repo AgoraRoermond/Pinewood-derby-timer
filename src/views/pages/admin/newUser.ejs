@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ("../../partials/admin/head") %>
+  <title>Accounts</title>
+</head>
+
+<body>
+  <%- include ("../../partials/admin/nav") %>
+
+  <main>
+    <form method="post">
+      <label for="accountName">Name :</label>
+      <br></br>
+      <input type="text" id="accountName" name="accountName">
+      <br></br>
+      <label for="accountEmail">Email :</label>
+      <br></br>
+      <input type="text" id="accountEmail" name="accountEmail">
+      <br></br>
+      <input type="radio" id="accountRole" name="accountRole" value='1'>
+      <label for="accountRole">teacher</label>
+      <br></br>
+      <input type="radio" id="accountRole" name="accountRole" value='0'>
+      <label for="accountRole">student</label>
+      <br></br>
+      <input type="submit" value="Submit">
+    </form>
+  </main>
+
+  <%- include ("../../partials/admin/footer") %>
+</body>
+
+</html>

@@ -15,6 +15,19 @@ async function getAccounts(request, response) {
   });
 }
 
+async function getNewUser(request, response) {
+  response.render('pages/admin/newUser');
+}
+
+async function postNewUser(request, response) {
+  var accountName = request.body.accountName;
+  var accountEmail = request.body.accountEmail;
+  var accountRole = request.body.accountRole;
+  console.log(accountName);
+  await sql.query("INSERT INTO `accounts` (`email`,`name`, `is_teacher`,`password`) VALUES(?,?,?,NULL)", [accountEmail, accountName, accountRole]);
+  response.redirect('/admin/accounts');
+}
+
 async function getAssignTimes(request, response) {
   var accountList = await sql.query("SELECT email, name FROM accounts");
   var unassignedTimes = serial.getLatestTimes();
@@ -52,6 +65,8 @@ async function postAssignTimes(request, response) {
 module.exports = {
   getTimes,
   getAccounts,
+  getNewUser,
+  postNewUser,
   getAssignTimes,
   postAssignTimes,
 };
