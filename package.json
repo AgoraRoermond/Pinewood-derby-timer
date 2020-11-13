@@ -16,10 +16,10 @@
     "dev": "cross-env NODE_ENV=development npm-run-all server",
     "lint": "npm-run-all lint:*",
     "lint:prettier": "prettier --check .",
-    "lint:eslint": "eslint --quiet src/**/*.js",
+    "lint:eslint": "eslint --quiet \"src/**/*.js\"",
     "autoformat": "npm-run-all autoformat:*",
     "autoformat:prettier": "prettier --write .",
-    "autoformat:eslint": "eslint --fix --quiet src/**/*.js"
+    "autoformat:eslint": "eslint --fix --quiet \"src/**/*.js\""
   },
   "license": "UNLICENSED",
   "dependencies": {

@@ -15,7 +15,7 @@ var racers = Array(3).fill(null);
 
 async function generateRaceId() {
   const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let generatedRaceId = Array(8)
+  const generatedRaceId = Array(8)
     .fill(42)
     .reduce((acc) => {
       return acc + charset[Math.floor(Math.random() * charset.length)];
@@ -34,7 +34,7 @@ parser.on("data", async (line) => {
   // Send raceId to arduino when asked
   if (line === "*") port.write((await generateRaceId()) + "\n");
 
-  let splitString = line.split(",");
+  const splitString = line.split(",");
   [raceId] = splitString;
   latestTimes = splitString.slice(1).map((x) => parseFloat(x));
 
@@ -43,7 +43,7 @@ parser.on("data", async (line) => {
       if (!studentMail || latestTimes[index] === null) return;
       await sql.query(
         "INSERT INTO `times` (`student_mail`,`time`,`raceId`) VALUES (?,?,?);",
-        [studentMail, assignedTimes[index], raceId]
+        [studentMail, latestTimes[index], raceId]
       );
       latestTimes[index] = null;
     })

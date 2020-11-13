@@ -39,14 +39,10 @@ function query(query, args) {
 }
 
 setInterval(async () => {
-  let currentTime = new Date().getTime();
+  const currentTime = new Date().getTime();
   if (lastQueryTime + 60000 < currentTime) {
     // If last query is more then one minute ago
-    try {
-      await query("SELECT 1");
-    } catch (e) {
-      throw e;
-    }
+    await query("SELECT 1");
   }
 }, 60000); // Execute once every minute
 
