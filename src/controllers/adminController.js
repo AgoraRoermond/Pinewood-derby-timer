@@ -1,5 +1,7 @@
 const sql = require("../db.js");
 const serial = require("../serial.js");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 async function getTimes(request, response) {
   var times = await sql.query("SELECT * FROM times");
@@ -23,8 +25,9 @@ async function postNewUser(request, response) {
   var accountName = request.body.accountName;
   var accountEmail = request.body.accountEmail;
   var accountRole = request.body.accountRole;
-  console.log(accountName);
-  await sql.query("INSERT INTO `accounts` (`email`,`name`, `is_teacher`,`password`) VALUES(?,?,?,NULL)", [accountEmail, accountName, accountRole]);
+  var accountPass = await bcrypt.hash(request.body.accountPass, saltRounds) 
+  console.log(accountPass);
+  await sql.query("INSERT INTO `accounts` (`email`,`name`, `is_teacher`,`password`) VALUES(?,?,?,?)", [accountEmail, accountName, accountRole, accountPass]);
   response.redirect('/admin/accounts');
 }
 
@@ -41,25 +44,24 @@ async function postAssignTimes(request, response) {
   var studentMails = request.body.studentMail;
   var assignedTimes = serial.getLatestTimes();
   return Promise.all(
-    studentMails.map((studentMail, index) => {
-      if (!studentMail) return Promise.resolve();
-      if (assignedTimes[index] === null) return Promise.resolve();
-      return sql
-        .query(
-          "INSERT INTO `times` (`student_mail`,`time`,`raceId`) VALUES (?,?,?);",
-          [studentMail, assignedTimes[index], serial.getRaceId()]
-        )
-        .then(() => serial.clearLatestTime(index));
-    })
-  )
+      studentMails.map((studentMail, index) => {
+        if (!studentMail) return Promise.resolve();
+        if (assignedTimes[index] === null) return Promise.resolve();
+        return sql
+          .query(
+            "INSERT INTO `times` (`student_mail`,`time`,`raceId`) VALUES (?,?,?);",
+            [studentMail, assignedTimes[index], serial.getRaceId()]
+          )
+          .then(() => serial.clearLatestTime(index));
+      })
+    )
     .then(() => response.redirect("/admin/assignTimes"))
     .catch(async () =>
       response.render("pages/admin/asign-times", {
         error: "Unknown email",
         unassignedTimes: assignedTimes,
         accountList: await sql.query("SELECT email, name FROM accounts"),
-      })
-    );
+      }));
 }
 
 module.exports = {
