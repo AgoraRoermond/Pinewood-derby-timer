@@ -22,12 +22,18 @@ async function getNewUser(request, response) {
 }
 
 async function postNewUser(request, response) {
-  var accountName = request.body.accountName;
-  var accountEmail = request.body.accountEmail;
-  var accountRole = request.body.accountRole;
-  var accountPass = await bcrypt.hash(request.body.accountPass, saltRounds) 
-  console.log(accountPass);
+  const accountName = request.body.accountName;
+  const accountEmail = request.body.accountEmail;
+  const accountRole = request.body.accountRole;
+  const accountPass = await bcrypt.hash(request.body.accountPass, saltRounds);
   await sql.query("INSERT INTO `accounts` (`email`,`name`, `is_teacher`,`password`) VALUES(?,?,?,?)", [accountEmail, accountName, accountRole, accountPass]);
+  response.redirect('/admin/accounts');
+}
+
+async function postDeleteAccount(request, response) {
+  const email = request.body.email;
+  await sql.query("DELETE FROM times WHERE student_mail = ?;", [email]);
+  await sql.query("DELETE FROM accounts WHERE email = ?;", [email]);
   response.redirect('/admin/accounts');
 }
 
@@ -71,4 +77,5 @@ module.exports = {
   postNewUser,
   getAssignTimes,
   postAssignTimes,
+  postDeleteAccount,
 };

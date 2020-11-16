@@ -2,34 +2,42 @@
 <html lang="en">
 
 <head>
-    <%- include ("../../partials/admin/head") %>
-    <title>Accounts</title>
+  <%- include ("../../partials/admin/head") %>
+  <title>Accounts</title>
 </head>
 
 <body>
-<%- include ("../../partials/admin/nav") %>
+  <%- include ("../../partials/admin/nav") %>
 
-<main>
+  <main>
     <a href="accounts/new">create a new user</a>
     <table>
-        <tr>
-            <th>Id</th>
-            <th>Student mail</th>
-            <th>is teacher</th>
-            <th>password</th>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>is teacher</th>
+        <th>password</th>
+        <th />
+      </tr>
 
-        <% for(let i = 0; i < accounts.length; i++) { %>
-            <tr>
-                <td><%= accounts[i].email %></td>
-                <td><%= accounts[i].name %></td>
-                <td><%= accounts[i].is_teacher %></td>
-                <td><%= accounts[i].password %></td>
-            </tr>
-        <% } %>
+      <% for(let i = 0; i < accounts.length; i++) { %>
+      <tr>
+        <td><%= accounts[i].email %></td>
+        <td><%= accounts[i].name %></td>
+        <td><%= accounts[i].is_teacher %></td>
+        <td><%= accounts[i].password %></td>
+        <td>
+          <form action="/admin/accounts/delete" method="POST">
+            <input type="hidden" value="<%= accounts[i].email %>" name="email" />
+            <input type="submit" value="Delete user" />
+          </form>
+        </td>
+      </tr>
+      <% } %>
     </table>
-</main>
+  </main>
 
-<%- include ("../../partials/admin/footer") %>
+  <%- include ("../../partials/admin/footer") %>
 </body>
+
 </html>

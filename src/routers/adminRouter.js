@@ -8,4 +8,6 @@ adminRouter.post("/assignTimes", adminController.postAssignTimes);
 adminRouter.get("/accounts", adminController.getAccounts);
 adminRouter.get('/accounts/new', adminController.getNewUser);
 adminRouter.post('/accounts/new', adminController.postNewUser);
+adminRouter.post('/accounts/delete', adminController.postDeleteAccount);
+
 module.exports = adminRouter;
