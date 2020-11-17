@@ -7,7 +7,7 @@
   <title>Join race</title>
 </head>
 
-<body>
+<body onLoad="fetchResults()">
   <%- include ("../../partials/student/nav") %>
   <script>
 
@@ -23,25 +23,37 @@
 
       <tr>
         <td>1ste</td>
-        <td></td>
-        <td></td>
+        <td id="firstName"></td>
+        <td id="firstTime"></td>
       </tr>
       <tr>
         <td>2de</td>
-        <td></td>
-        <td></td>
+        <td id="secondName"></td>
+        <td id="secondTime"></td>
       </tr>
       <tr>
         <td>3de</td>
-        <td></td>
-        <td></td>
+        <td id="thirdName"></td>
+        <td id="thirdTime"></td>
       </tr>
 
 
     </table>
     <script>
+    async function fetchResults() {
       const response = await (await fetch('/api/student/results')).json();
-      console.log(response);
+      if (Results.gameFinished) {
+        document.querySelector("#firstName").innerText = response.first.name;
+        document.querySelector("#firstTime").innerText = response.first.time;
+        document.querySelector("#secondName").innerText = response.second.name;
+        document.querySelector("#secondTime").innerText = response.second.time;
+        document.querySelector("#thirdName").innerText = response.third.name;
+        document.querySelector("#thirdTime").innerText = response.third.time;
+        console.log(response);
+      } else {
+        setInterval(1000);
+      }
+    }
     </script>
   </main>
   <%- include ("../../partials/student/footer") %>
