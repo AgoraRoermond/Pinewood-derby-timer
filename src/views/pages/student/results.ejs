@@ -40,20 +40,20 @@
 
     </table>
     <script>
-    async function fetchResults() {
-      const response = await (await fetch('/api/student/results')).json();
-      if (Results.gameFinished) {
-        document.querySelector("#firstName").innerText = response.first.name;
-        document.querySelector("#firstTime").innerText = response.first.time;
-        document.querySelector("#secondName").innerText = response.second.name;
-        document.querySelector("#secondTime").innerText = response.second.time;
-        document.querySelector("#thirdName").innerText = response.third.name;
-        document.querySelector("#thirdTime").innerText = response.third.time;
-        console.log(response);
-      } else {
-        setInterval(1000);
+      async function fetchResults() {
+        const response = await (await fetch('/api/student/results')).json();
+        if (response.gameFinished) {
+          document.querySelector("#firstName").innerText = response.first.name;
+          document.querySelector("#firstTime").innerText = response.first.time;
+          document.querySelector("#secondName").innerText = response.second.name;
+          document.querySelector("#secondTime").innerText = response.second.time;
+          document.querySelector("#thirdName").innerText = response.third.name;
+          document.querySelector("#thirdTime").innerText = response.third.time;
+          console.log(response);
+        } else {
+          setInterval(1000);
+        }
       }
-    }
     </script>
   </main>
   <%- include ("../../partials/student/footer") %>
