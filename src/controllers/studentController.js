@@ -17,10 +17,7 @@ function getJoinRace(request, response) {
 
 async function postJoinRace(request, response) {
   const loginEmail = request.session.loginEmail;
-  const {
-    raceId,
-    trackId: trackIdString
-  } = request.body;
+  const { raceId, trackId: trackIdString } = request.body;
   const trackId = parseInt(trackIdString);
   if (raceId !== serial.getRaceId())
     return response.render("pages/student/joinRace", {
@@ -43,36 +40,29 @@ function getResult(request, response) {
 }
 
 async function getResultApi(request, response) {
+  const results = await sql.query(
+    "SELECT `accounts`.`name`, `time` FROM `times` INNER JOIN `accounts` ON `times`.`student_mail` = `accounts`.`email` WHERE raceId=? ORDER BY time ASC",
+    [serial.getRaceId()]
+  );
+  if (results.length === 0)
+    return response.json({
+      gameFinished: false,
+    });
   return response.json({
     gameFinished: true,
-    first: {
-      name: "Jetse",
-      time: 1
+    first: results[0] && {
+      name: results[0].name,
+      time: results[0].time,
     },
-    second: {
-      name: "Job",
-      time: 2
+    second: results[1] && {
+      name: results[1].name,
+      time: results[1].time,
     },
-    third: {
-      name: "Martijn",
-      time: 3
+    third: results[2] && {
+      name: results[2].name,
+      time: results[2].time,
     },
   });
-  // const results = await sql.query(
-  //   "SELECT `student_mail`, `time` FROM `times` WHERE raceId=? ORDER BY time ASC",
-  //   [serial.getRaceId()]
-  // );
-  // const position = results
-  //   .map((result) => result.student_mail)
-  //   .indexOf(request.session.loginEmail);
-  // if (position < 0)
-  //   return response.json({
-  //     gameFinished: false,
-  //   });
-  // return response.json({
-  //   gameFinished: true,
-  //   position,
-  // });
 }
 
 module.exports = {

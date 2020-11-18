@@ -2,61 +2,67 @@
 <html lang="en">
 
 <head>
-  <%- include ("../../partials/student/head") %>
-  <link rel="stylesheet" href="/css/student/results.css">
-  <title>Join race</title>
-</head>
-
-<body onLoad="fetchResults()">
-  <%- include ("../../partials/student/nav") %>
-  <script>
-
-  </script>
-  <main>
-    <table>
-      <tr>
-        <th>Plek</th>
-        <th>Wie</th>
-        <th>Tijd</th>
-      </tr>
-
-
-      <tr>
-        <td>1ste</td>
-        <td id="firstName"></td>
-        <td id="firstTime"></td>
-      </tr>
-      <tr>
-        <td>2de</td>
-        <td id="secondName"></td>
-        <td id="secondTime"></td>
-      </tr>
-      <tr>
-        <td>3de</td>
-        <td id="thirdName"></td>
-        <td id="thirdTime"></td>
-      </tr>
-
-
-    </table>
+    <%- include ("../../partials/student/head") %>
+    <link rel="stylesheet" href="/css/student/results.css">
+    <title>Join race</title>
     <script>
       async function fetchResults() {
         const response = await (await fetch('/api/student/results')).json();
         if (response.gameFinished) {
-          document.querySelector("#firstName").innerText = response.first.name;
-          document.querySelector("#firstTime").innerText = response.first.time;
-          document.querySelector("#secondName").innerText = response.second.name;
-          document.querySelector("#secondTime").innerText = response.second.time;
-          document.querySelector("#thirdName").innerText = response.third.name;
-          document.querySelector("#thirdTime").innerText = response.third.time;
-          console.log(response);
+          if (response.first) {
+            document.querySelector("#firstName").innerText = response.first.name;
+            document.querySelector("#firstTime").innerText = response.first.time;
+          }
+          if (response.second) {
+            document.querySelector("#secondName").innerText = response.second.name;
+            document.querySelector("#secondTime").innerText = response.second.time;
+          }
+          if (response.third) {
+            document.querySelector("#thirdName").innerText = response.third.name;
+            document.querySelector("#thirdTime").innerText = response.third.time;
+          }
+          document.querySelector("table").style.display = "table";
         } else {
-          setInterval(1000);
+          setTimeout(fetchResults, 1000);
         }
       }
     </script>
-  </main>
-  <%- include ("../../partials/student/footer") %>
+</head>
+
+<body onLoad="fetchResults()">
+<%- include ("../../partials/student/nav") %>
+
+<main>
+    <table style="display: none">
+        <tr>
+            <th>Plek</th>
+            <th>Wie</th>
+            <th>Tijd</th>
+        </tr>
+
+
+        <tr>
+            <td>1ste</td>
+            <td id="firstName"></td>
+            <td id="firstTime"></td>
+        </tr>
+        <tr>
+            <td>2de</td>
+            <td id="secondName"></td>
+            <td id="secondTime"></td>
+        </tr>
+        <tr>
+            <td>3de</td>
+            <td id="thirdName"></td>
+            <td id="thirdTime"></td>
+        </tr>
+
+
+    </table>
+
+</main>
+
+<%- include ("../../partials/student/footer") %>
 </body>
 
 </html>
