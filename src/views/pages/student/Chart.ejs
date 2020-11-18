@@ -5,14 +5,15 @@
   <%- include ("../../partials/student/head") %>
   <title>chart</title>
 
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript"/>
+
 </head>
 
 <body>
   <%- include ("../../partials/student/nav") %>
   <main>
   <div id="chart_div" style="width: 100%; height: 500px;"></div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
       google.charts.load('current', {
         'packages': ['corechart']
       });
@@ -20,21 +21,10 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['year', 'tijd', ], <
-          %
-          for (let i = 0; i < timeList.length; i++)
-
-
-
-          {
-            %
-            >
-
-            [ < %= timeList[i].timestamp % > , < %= timeList[i].tijd % > , ],
-
-            <
-            %
-          } % >
+          ['date', 'tijd', ],
+          <% for (let i = 0; i < timeList.length; i++) { %>
+            [ new Date("<%= timeList[i].timestamp %>"), <%= timeList[i].time %> ],
+          <% } %>
         ]);
 
 
@@ -65,14 +55,12 @@
 
       <% for(let i = 0; i < timeList.length; i++) { %>
       <tr>
-        <td><%= timeList[i].tijd %></td>
+        <td><%= timeList[i].time %></td>
         <td><%= timeList[i].timestamp %></td>
       </tr>
       <% } %>
     </table>
   </main>
-</body>
-
 <%- include ("../../partials/student/footer") %>
 </body>
 
