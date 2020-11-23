@@ -6,7 +6,11 @@ const apiRouter = require("./routers/apiRouter");
 const router = express.Router();
 
 function requireTeacher(req, res, next) {
-  if (req.session.isTeacher)
+  if (req.session.isTeacher) {
+    next();
+  } else {
+    res.send("permission denied");
+  }
 }
 
 router.use("/admin", requireTeacher, adminRouter);
