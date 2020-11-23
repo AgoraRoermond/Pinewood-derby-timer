@@ -4,7 +4,6 @@
 <head>
     <%- include ("../../partials/student/head") %>
     <link rel="stylesheet" href="/css/student/results.css">
-    <title>Join race</title>
     <script>
       async function fetchResults() {
         const response = await (await fetch('/api/student/results')).json();
