@@ -14,7 +14,7 @@ main {
   color: red;
 }
 
-p.footer {
+footer {
   position: absolute;
   bottom: 5px;
 }

@@ -2,66 +2,67 @@
 <html lang="en">
 
 <head>
-    <%- include ("../../partials/student/head") %>
-    <link rel="stylesheet" href="/css/student/results.css">
-    <script>
-      async function fetchResults() {
-        const response = await (await fetch('/api/student/results')).json();
-        if (response.gameFinished) {
-          if (response.first) {
-            document.querySelector("#firstName").innerText = response.first.name;
-            document.querySelector("#firstTime").innerText = response.first.time;
-          }
-          if (response.second) {
-            document.querySelector("#secondName").innerText = response.second.name;
-            document.querySelector("#secondTime").innerText = response.second.time;
-          }
-          if (response.third) {
-            document.querySelector("#thirdName").innerText = response.third.name;
-            document.querySelector("#thirdTime").innerText = response.third.time;
-          }
-          document.querySelector("table").style.display = "table";
-        } else {
-          setTimeout(fetchResults, 1000);
+  <%- include ("../../partials/student/head") %>
+  <link rel="stylesheet" href="/css/student/results.css">
+  <title>Results</title>
+  <script>
+    async function fetchResults() {
+      const response = await (await fetch('/api/student/results')).json();
+      if (response.gameFinished) {
+        if (response.first) {
+          document.querySelector("#firstName").innerText = response.first.name;
+          document.querySelector("#firstTime").innerText = response.first.time;
         }
+        if (response.second) {
+          document.querySelector("#secondName").innerText = response.second.name;
+          document.querySelector("#secondTime").innerText = response.second.time;
+        }
+        if (response.third) {
+          document.querySelector("#thirdName").innerText = response.third.name;
+          document.querySelector("#thirdTime").innerText = response.third.time;
+        }
+        document.querySelector("table").style.display = "table";
+      } else {
+        setTimeout(fetchResults, 1000);
       }
-    </script>
+    }
+  </script>
 </head>
 
 <body onLoad="fetchResults()">
-<%- include ("../../partials/student/nav") %>
+  <%- include ("../../partials/student/nav") %>
 
-<main>
+  <main>
     <table style="display: none">
-        <tr>
-            <th>Plek</th>
-            <th>Wie</th>
-            <th>Tijd</th>
-        </tr>
+      <tr>
+        <th>Plek</th>
+        <th>Wie</th>
+        <th>Tijd</th>
+      </tr>
 
 
-        <tr>
-            <td>1ste</td>
-            <td id="firstName"></td>
-            <td id="firstTime"></td>
-        </tr>
-        <tr>
-            <td>2de</td>
-            <td id="secondName"></td>
-            <td id="secondTime"></td>
-        </tr>
-        <tr>
-            <td>3de</td>
-            <td id="thirdName"></td>
-            <td id="thirdTime"></td>
-        </tr>
+      <tr>
+        <td>1ste</td>
+        <td id="firstName"></td>
+        <td id="firstTime"></td>
+      </tr>
+      <tr>
+        <td>2de</td>
+        <td id="secondName"></td>
+        <td id="secondTime"></td>
+      </tr>
+      <tr>
+        <td>3de</td>
+        <td id="thirdName"></td>
+        <td id="thirdTime"></td>
+      </tr>
 
 
     </table>
 
-</main>
+  </main>
 
-<%- include ("../../partials/student/footer") %>
+  <%- include ("../../partials/student/footer") %>
 </body>
 
 </html>
