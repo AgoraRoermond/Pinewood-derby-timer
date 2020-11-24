@@ -1,26 +1,13 @@
 const sql = require("../db.js");
 const serial = require("../serial");
 
-async function getDashboard(request, response) {
-  const loginEmail = request.session.loginEmail;
-  const times = await sql.query("SELECT * FROM times WHERE student_mail = ?", [
-    loginEmail,
-  ]);
-  response.render("pages/student/student", {
-    times,
-  });
-}
-
 function getJoinRace(request, response) {
   return response.render("pages/student/joinRace");
 }
 
 async function postJoinRace(request, response) {
   const loginEmail = request.session.loginEmail;
-  const {
-    raceId,
-    trackId: trackIdString
-  } = request.body;
+  const { raceId, trackId: trackIdString } = request.body;
   const trackId = parseInt(trackIdString);
   if (raceId !== serial.getRaceId())
     return response.render("pages/student/joinRace", {
@@ -60,14 +47,13 @@ async function getResultApi(request, response) {
   });
 }
 
-async function getTimes(request, response) {
+async function getDashboard(request, response) {
   var loginEmail = request.session.loginEmail;
   var timeList = await sql.query(
     "SELECT time, DATE(timestamp) AS timestamp FROM times WHERE student_mail = ?",
     [loginEmail]
   );
-  console.log(timeList[0].timestamp.toISOString());
-  console.log(timeList[0]);
+
   return response.render("pages/student/chart", {
     timeList,
   });
@@ -79,5 +65,4 @@ module.exports = {
   postJoinRace,
   getResult,
   getResultApi,
-  getTimes,
 };
