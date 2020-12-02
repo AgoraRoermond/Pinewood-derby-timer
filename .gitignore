@@ -113,6 +113,11 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
+yarn.lock
+
+# npm
+
+package-lock.json
 
 # Vistual studio crap
 .vs
