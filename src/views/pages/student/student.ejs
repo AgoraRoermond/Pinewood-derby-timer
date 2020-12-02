@@ -2,33 +2,35 @@
 <html lang="en">
 
 <head>
-    <%- include ("../../partials/student/head") %>
-    <title>Student dashboard</title>
+  <%- include ("../../partials/student/head") %>
+  <link rel="stylesheet" href="/css/student/joinrace.css">
+  <title>Student dashboard</title>
 </head>
 
 <body>
-<%- include ("../../partials/student/nav") %>
+  <%- include ("../../partials/student/nav") %>
 
-<main>
+  <main>
     <table>
-        <tr>
-            <th>Id</th>
-            <th>Student mail</th>
-            <th>Time</th>
-            <th>Timestamp</th>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <th>Student mail</th>
+        <th>Time</th>
+        <th>Timestamp</th>
+      </tr>
 
-        <% for(let i = 0; i < times.length; i++) { %>
-            <tr>
-                <td><%= times[i].id %></td>
-                <td><%= times[i].student_mail %></td>
-                <td><%= times[i].time %></td>
-                <td><%= times[i].timestamp %></td>
-            </tr>
-        <% } %>
+      <% for(let i = 0; i < times.length; i++) { %>
+      <tr>
+        <td><%= times[i].id %></td>
+        <td><%= times[i].student_mail %></td>
+        <td><%= times[i].time %></td>
+        <td><%= times[i].timestamp %></td>
+      </tr>
+      <% } %>
     </table>
-</main>
+  </main>
 
-<%- include ('../../partials/student/footer') %>
+  <%- include ('../../partials/student/footer') %>
 </body>
+
 </html>

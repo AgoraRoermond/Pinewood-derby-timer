@@ -9,7 +9,7 @@ function requireTeacher(req, res, next) {
   if (req.session.isTeacher) {
     next();
   } else {
-    res.send("premission denied");
+    response.redirect("/auth/login");
   }
 }
 

@@ -26,24 +26,32 @@ async function postJoinRace(request, response) {
 }
 
 function getResult(request, response) {
-  return response.send("Here are the results");
+  return response.render("pages/student/results");
 }
 
 async function getResultApi(request, response) {
   const results = await sql.query(
-    "SELECT `student_mail`, `time` FROM `times` WHERE raceId=? ORDER BY time ASC",
+    "SELECT `accounts`.`name`, `time` FROM `times` INNER JOIN `accounts` ON `times`.`student_mail` = `accounts`.`email` WHERE raceId=? ORDER BY time ASC",
     [serial.getRaceId()]
   );
-  const position = results
-    .map((result) => result.student_mail)
-    .indexOf(request.session.loginEmail);
-  if (position < 0)
+  if (results.length === 0)
     return response.json({
       gameFinished: false,
     });
   return response.json({
     gameFinished: true,
-    position,
+    first: results[0] && {
+      name: results[0].name,
+      time: results[0].time,
+    },
+    second: results[1] && {
+      name: results[1].name,
+      time: results[1].time,
+    },
+    third: results[2] && {
+      name: results[2].name,
+      time: results[2].time,
+    },
   });
 }
 

@@ -1,3 +1,14 @@
+.header {
+  text-align: center;
+  background: #0b8787;
+  color: black;
+  font-size: 35px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
