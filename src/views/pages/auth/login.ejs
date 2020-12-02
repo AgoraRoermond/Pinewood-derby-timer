@@ -58,19 +58,10 @@
   <!--script voor de popup veranderen-->
   <script>
     function myFunction() {
-      if ( < %
-        if (typeof error != 'undefined') {
-          %
-          >
-          true < %
-        } else {
-          %
-          >
-          false < %
-        } % > ) {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-      }
+      <% if (typeof error != 'undefined') { %>
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+      <% } %>
     }
   </script>
 </body>

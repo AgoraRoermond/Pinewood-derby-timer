@@ -9,7 +9,7 @@ function requireTeacher(req, res, next) {
   if (req.session.isTeacher) {
     next();
   } else {
-    response.redirect("/auth/login");
+    res.redirect("/auth/login");
   }
 }
 
